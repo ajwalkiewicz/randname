@@ -1,45 +1,50 @@
-#!/usr/bin/python3
 import random
 import json
 import os
 from bisect import bisect_left
-from name_errors import InvalidSexArgument
+import random_names_errors as err
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
-LAST_NAMES_PATH = os.path.join(THIS_FOLDER, "lastNames.json")
-FIRST_NAMES_PATH = os.path.join(THIS_FOLDER, "firstNames.json")
+LAST_NAMES_PATH = os.path.join(THIS_FOLDER, "data", "USA", "last_names")
+FIRST_NAMES_PATH = os.path.join(THIS_FOLDER, "data", "USA", "first_names")
 
 
 def last_name(year=1900):
-    population = [1900, 1910, 1920, 1990, 2010]
-    year_index = bisect_left(population, year)
-    variable_year = population[year_index]
-    variable_name = f'{variable_year}'
+    if not year <= 2010:
+        raise err.YearNotInRange(year, (None, 2010))
 
-    with open(LAST_NAMES_PATH) as json_file:
-        json_variable_name = json.load(json_file)[variable_name]
-        name_population = json_variable_name["Names"]
-        name_weights = json_variable_name["Totals"]
+    data_range = (1990, 2010)
+    year_index = bisect_left(data_range, year)
+    
+    year = data_range[year_index]
+    data_set_name = f'{year}'
+    data_set_path = os.path.join(LAST_NAMES_PATH, data_set_name)
+
+    with open(data_set_path) as json_file:
+        data_set = json.load(json_file)
+        name_population = data_set["Names"]
+        name_weights = data_set["Totals"]
         last_name = random.choices(name_population, cum_weights=name_weights)[0]
     return last_name
 
 def first_name(year=1900, sex=None):
-    if year < 1880:
-        year = 1880
+    if not 1880 <= year <= 2018:
+        raise err.YearNotInRange(year, (1880, 2018))
 
     if sex is None:
-        sex = random.choice(['M', 'F'])
+        sex = random.choice(('M', 'F'))
 
-    if sex not in ['M', 'F']:
-        raise InvalidSexArgument(sex)
+    if sex not in ('M', 'F'):
+        raise err.InvalidSexArgument(sex)
 
-    variable_name = f'{year}_{sex}'
+    data_set_name = f'{year}_{sex}'
+    data_set_path = os.path.join(FIRST_NAMES_PATH, data_set_name)
 
-    with open(FIRST_NAMES_PATH) as json_file:
-        json_variable_name = json.load(json_file)[variable_name]
-        name_population = json_variable_name["Names"]
-        name_weights = json_variable_name["Totals"]
+    with open(data_set_path) as json_file:
+        data_set = json.load(json_file)
+        name_population = data_set["Names"]
+        name_weights = data_set["Totals"]
         first_name = random.choices(name_population, cum_weights=name_weights)[0]
     return first_name
 
