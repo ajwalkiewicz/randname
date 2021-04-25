@@ -1,3 +1,4 @@
+.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -76,6 +77,7 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+*.ipynb
 
 # IPython
 profile_default/
@@ -117,6 +119,9 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
+# VS code settings
+.vscode
+
 # mkdocs documentation
 /site
 
@@ -127,3 +132,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Others
+miscelenious
