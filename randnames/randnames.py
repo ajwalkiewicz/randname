@@ -1,3 +1,5 @@
+"""Main module for randnames
+"""
 import random
 import json
 import os
@@ -41,6 +43,9 @@ def last_name(year: int = None) -> str:
     :raises YearNotInRange: if year is not in propper range, currently (1990, 2010)
     :return: last name
     :rtype: str
+
+    >>> last_name()
+    'Mongillo'
     """
     if not year:
         year = random.randint(1990, 2010)
@@ -75,6 +80,9 @@ def first_name(year: int = None, sex: str = None) -> str:
     :raises InvalidSexArgument: [description]
     :return: first name
     :rtype: str
+
+    >>> first_name()
+    'Jillian'
     """
     if not year:
         year = random.randint(1880, 2018)
@@ -109,9 +117,8 @@ def full_name(year: int = None, sex: str = None) -> str:
     :type sex: str, optional
     :return: [description]
     :rtype: str
+
+    >>> full_name()
+    'Jillian Mongillo'
     """
     return f"{first_name(year, sex)} {last_name(year)}"
-
-
-if __name__ == "__main__":
-    print(first_name(), last_name())
