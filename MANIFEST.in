@@ -1,4 +1,6 @@
 include LICENSE
-recursive-include src *.json
-recursive-include src *.py
+recursive-include randnames *.json
+recursive-include randnames *.py
 recursive-include tests *.py
+recursive-include randnames/data *
+recursive-exclude randnames *.ipynb

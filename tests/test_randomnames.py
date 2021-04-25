@@ -1,6 +1,6 @@
 import unittest
 import random
-import randomnames
+import randnames
 from bisect import bisect_left
 from unittest.mock import patch
 
@@ -25,11 +25,11 @@ class TestRandomNames(unittest.TestCase):
     #     self.assertEqual(result, 'Adam')
 
     def test_first_name(self):
-        result = randomnames.first_name()
+        result = randnames.first_name()
         self.assertIsInstance(result, str)
 
     def test_last_name(self):
-        result = randomnames.last_name()
+        result = randnames.last_name()
         self.assertIsInstance(result, str)
 
     # def test_perf_first_name(self):
