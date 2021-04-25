@@ -82,6 +82,9 @@ def first_name(year=None, sex=None):
         first_name = random.choices(name_population, cum_weights=name_weights)[0]
     return first_name
 
+def full_name(year=None, sex=None) -> str:
+    return f"{first_name(year, sex)} {last_name(year)}"
+
 
 if __name__ == "__main__":
     print(first_name(), last_name())
