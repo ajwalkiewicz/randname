@@ -8,7 +8,7 @@ with open(f"{THIS_FOLDER}/README.md", "r") as fh:
 
 setup(
     name="randnames",
-    version="0.0.6",
+    version="0.0.8",
     description="Draw random first and last USA names",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -17,9 +17,10 @@ setup(
     author_email="aj.walkiewicz@gmail.com",
     license="MIT",
     classifiers=[
+        'Development Status :: 0.0.8 - Beta',
         "License :: OSI Approved :: MIT License",
         'Operating System :: OS Independent',
-        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.6+",
     ],
     packages=["randnames"],
     include_package_data=True,
