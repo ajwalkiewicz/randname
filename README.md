@@ -1,26 +1,94 @@
 # randnames
-Python module to draw random USA names 
+Python module to draw random USA names.
+
+# Summary
+
+to be done
+
+# Table of Contents
+
+- [Project Title](#randnames)
+- [Summary](#summary)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Documentation](#documentation)
+- [Database](#database)
+- [Contribution](#contribution)
+- [Authors & Contributors](#authors-&-contributors)
+- [To Do](#to-do)
+- [License](#license)
+
+# Installation
+
+Randnames is availabe in python repository, and can be downloaded with pip.
+
+```
+pip3 install randnames
+```
 
 # Usage
 
 ```
-import rand-names as rn
+>>> import randnames
 
 # Get first name
-rn.first_name()
+>>> randnames.first_name()
+'John'
 
 # Get last name
-rn.last_name()
+>>> randnames.last_name()
+'Doe'
+
+# Get full name
+>>>randnames.full_name()
+'John Doe'
 ```
 
-# Sources
-## Last names
+# Documentation
+
+Detailed documentation of module can by found here:
+[randnames documentation](https://ajwalkiewicz.github.io/randnames/_build/html/index.html#)
+
+# Database
+
+So far project uses databases from www.census.gov and www.ssa.gov.
+
+### Last names
+
+Databases for USA last names: 
+
 https://www.census.gov/topics/population/genealogy/data/1990_census.html
 https://www.census.gov/topics/population/genealogy/data/2000_surnames.html
 https://www.census.gov/topics/population/genealogy/data/2010_surnames.html
 
-## first names
+### first names
+
+Database for USA first names:
+
 https://www.ssa.gov/oact/babynames/limits.html
 
-## 3rd party license
+### license
 https://www.census.gov/data/software/x13as/disclaimer.html
+
+# Contribution
+
+
+# Authors & Contributors
+
+**Author**: Adam Walkiewicz
+
+**Contributors**: Be first!
+
+# To do
+
+1. [ ] Summary
+1. [ ] Basic documentation
+1. [ ] Unit tests
+1. [ ] Instruction for database creation
+1. [ ] Support for other countries names
+1. [ ] Add 9 more countries 
+
+# License
+
+Randnames is licensed under the terms of the [MIT license](LICENSE)
