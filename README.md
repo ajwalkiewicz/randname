@@ -83,9 +83,10 @@ https://www.census.gov/data/software/x13as/disclaimer.html
 # To do
 
 1. [ ] Summary
-1. [ ] Basic documentation
+1. [ ] Contribution guideline
 1. [ ] Unit tests
 1. [ ] Instruction for database creation
+1. [ ] Add equal chances for every name feature
 1. [ ] Support for other countries names
 1. [ ] Add 9 more countries 
 
