@@ -1,4 +1,5 @@
 """Main module for randnames
+
 """
 import random
 import json
@@ -35,17 +36,16 @@ class YearNotInRange(Exception):
         super().__init__(self.message)
 
 def last_name(year: int = None) -> str:
-    """Last Name
-    Draw last name for a given year
+    """Return random last name
 
-    :param year: year as int to draw last name from that year database, defaults to None
+    :param year: year of source database, defaults to None
     :type year: int, optional
-    :raises YearNotInRange: if year is not in propper range, currently (1990, 2010)
-    :return: last name
+    :raises YearNotInRange: throw error if year is not in valid range
+    :return: last name as string
     :rtype: str
 
     >>> last_name()
-    'Mongillo'
+    'Doe'
     """
     if not year:
         year = random.randint(1990, 2010)
@@ -68,21 +68,19 @@ def last_name(year: int = None) -> str:
     return last_name
 
 def first_name(year: int = None, sex: str = None) -> str:
-    """First name
-    Draw firest name for a given year and gender.
-    By default year and sex are chosen randomly
+    """Return random first name
 
-    :param year: [description], defaults to None
+    :param year: year of source database, defaults to None
     :type year: int, optional
-    :param sex: [description], defaults to None
+    :param sex: first name gender, defaults to None
     :type sex: str, optional
-    :raises YearNotInRange: [description]
-    :raises InvalidSexArgument: [description]
-    :return: first name
+    :raises YearNotInRange: If year is not in valid range
+    :raises InvalidSexArgument: If invalid sex argument
+    :return: first name as string
     :rtype: str
 
     >>> first_name()
-    'Jillian'
+    'John'
     """
     if not year:
         year = random.randint(1880, 2018)
@@ -107,18 +105,16 @@ def first_name(year: int = None, sex: str = None) -> str:
     return first_name
 
 def full_name(year: int = None, sex: str = None) -> str:
-    """Full name
-    Return full name for a given year an gender.
-    By default yera and sex are chosen randomly.
+    """Return random first and las name 
 
-    :param year: [description], defaults to None
+    :param year: year of source database, defaults to None
     :type year: int, optional
-    :param sex: [description], defaults to None
+    :param sex: first name gender, defaults to None
     :type sex: str, optional
-    :return: [description]
+    :return: full name as string
     :rtype: str
 
     >>> full_name()
-    'Jillian Mongillo'
+    'John Doe'
     """
     return f"{first_name(year, sex)} {last_name(year)}"
