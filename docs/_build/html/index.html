@@ -64,31 +64,29 @@
 <dl class="py function">
 <dt id="randnames.randnames.first_name">
 <code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">first_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randnames.randnames.first_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>First name
-Draw firest name for a given year and gender.
-By default year and sex are chosen randomly</p>
+<dd><p>Return random first name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – [description], defaults to None</p></li>
-<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – [description], defaults to None</p></li>
+<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p></li>
+<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – first name gender, defaults to None</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#randnames.randnames.YearNotInRange" title="randnames.randnames.YearNotInRange"><strong>YearNotInRange</strong></a> – [description]</p></li>
-<li><p><a class="reference internal" href="#randnames.randnames.InvalidSexArgument" title="randnames.randnames.InvalidSexArgument"><strong>InvalidSexArgument</strong></a> – [description]</p></li>
+<li><p><a class="reference internal" href="#randnames.randnames.YearNotInRange" title="randnames.randnames.YearNotInRange"><strong>YearNotInRange</strong></a> – If year is not in valid range</p></li>
+<li><p><a class="reference internal" href="#randnames.randnames.InvalidSexArgument" title="randnames.randnames.InvalidSexArgument"><strong>InvalidSexArgument</strong></a> – If invalid sex argument</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>first name</p>
+<dd class="field-odd"><p>first name as string</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">first_name</span><span class="p">()</span>
-<span class="go">&#39;Jillian&#39;</span>
+<span class="go">&#39;John&#39;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -96,25 +94,23 @@ By default year and sex are chosen randomly</p>
 <dl class="py function">
 <dt id="randnames.randnames.full_name">
 <code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">full_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randnames.randnames.full_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Full name
-Return full name for a given year an gender.
-By default yera and sex are chosen randomly.</p>
+<dd><p>Return random first and las name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – [description], defaults to None</p></li>
-<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – [description], defaults to None</p></li>
+<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p></li>
+<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – first name gender, defaults to None</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>[description]</p>
+<dd class="field-even"><p>full name as string</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">full_name</span><span class="p">()</span>
-<span class="go">&#39;Jillian Mongillo&#39;</span>
+<span class="go">&#39;John Doe&#39;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -122,24 +118,23 @@ By default yera and sex are chosen randomly.</p>
 <dl class="py function">
 <dt id="randnames.randnames.last_name">
 <code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">last_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randnames.randnames.last_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Last Name
-Draw last name for a given year</p>
+<dd><p>Return random last name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year as int to draw last name from that year database, defaults to None</p>
+<dd class="field-odd"><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="#randnames.randnames.YearNotInRange" title="randnames.randnames.YearNotInRange"><strong>YearNotInRange</strong></a> – if year is not in propper range, currently (1990, 2010)</p>
+<dd class="field-even"><p><a class="reference internal" href="#randnames.randnames.YearNotInRange" title="randnames.randnames.YearNotInRange"><strong>YearNotInRange</strong></a> – throw error if year is not in valid range</p>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>last name</p>
+<dd class="field-odd"><p>last name as string</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">last_name</span><span class="p">()</span>
-<span class="go">&#39;Mongillo&#39;</span>
+<span class="go">&#39;Doe&#39;</span>
 </pre></div>
 </div>
 </dd></dl>
