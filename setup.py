@@ -17,10 +17,11 @@ setup(
     author_email="aj.walkiewicz@gmail.com",
     license="MIT",
     classifiers=[
-        'Development Status :: 0.0.8 - Beta',
         "License :: OSI Approved :: MIT License",
         'Operating System :: OS Independent',
-        "Programming Language :: Python :: 3.6+",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
     ],
     packages=["randnames"],
     include_package_data=True,
