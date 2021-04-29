@@ -54,7 +54,7 @@ def last_name(year: int = None, country: str = False, weights: bool = True) -> s
     >>> last_name()
     'Doe'
     """
-    country = "USA" # Temporary fix untill dataset preparation
+    # country = "USA" # Temporary fix untill dataset preparation
 
     if not country:
         country = random.choice(COUNTRIES_BASE)
