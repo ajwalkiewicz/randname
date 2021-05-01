@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to randnames’s documentation! &#8212; randnames 0.0.8 documentation</title>
+    <title>Welcome to randnames’s documentation! &#8212; randnames 0.0.10 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     
@@ -26,7 +26,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">randnames 0.0.8 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="#">randnames 0.0.10 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Welcome to randnames’s documentation!</a></li> 
       </ul>
     </div>  
@@ -39,31 +39,33 @@
   <div class="section" id="module-randnames.randnames">
 <span id="welcome-to-randnames-s-documentation"></span><h1>Welcome to randnames’s documentation!<a class="headerlink" href="#module-randnames.randnames" title="Permalink to this headline">¶</a></h1>
 <p>Main module for randnames</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">randomnames</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randomnames</span><span class="o">.</span><span class="n">full_name</span><span class="p">()</span>
+<span class="go">&#39;John Doe&#39;</span>
+</pre></div>
+</div>
 <dl class="py exception">
 <dt id="randnames.randnames.InvalidSexArgument">
 <em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">InvalidSexArgument</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randnames.randnames.InvalidSexArgument" title="Permalink to this definition">¶</a></dt>
-<dd><p>Invalid Sex Argument</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>Exception</strong> (<em>Exception</em>) – Exception</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
-<dl class="py exception">
-<dt id="randnames.randnames.YearNotInRange">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">YearNotInRange</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_range</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randnames.randnames.YearNotInRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>Year not in valid range</p>
+<dl class="py function">
+<dt id="randnames.randnames.available_countries">
+<code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">available_countries</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#randnames.randnames.available_countries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return list of available countries</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>Exception</strong> (<em>[</em><em>type</em><em>]</em>) – [description]</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>lis of available countries</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="randnames.randnames.first_name">
-<code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">first_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randnames.randnames.first_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">first_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randnames.randnames.first_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return random first name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -74,7 +76,7 @@
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="#randnames.randnames.YearNotInRange" title="randnames.randnames.YearNotInRange"><strong>YearNotInRange</strong></a> – If year is not in valid range</p></li>
+<li><p><strong>YearNotInRange</strong> – If year is not in valid range</p></li>
 <li><p><a class="reference internal" href="#randnames.randnames.InvalidSexArgument" title="randnames.randnames.InvalidSexArgument"><strong>InvalidSexArgument</strong></a> – If invalid sex argument</p></li>
 </ul>
 </dd>
@@ -117,14 +119,17 @@
 
 <dl class="py function">
 <dt id="randnames.randnames.last_name">
-<code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">last_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randnames.randnames.last_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">last_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randnames.randnames.last_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return random last name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p></li>
+<li><p><strong>country</strong> (<em>str</em><em>, </em><em>optional</em>) – select database country, defaults to False</p></li>
+</ul>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="#randnames.randnames.YearNotInRange" title="randnames.randnames.YearNotInRange"><strong>YearNotInRange</strong></a> – throw error if year is not in valid range</p>
+<dd class="field-even"><p><strong>YearNotInRange</strong> – throw error if year is not in valid range</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>last name as string</p>
@@ -194,7 +199,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">randnames 0.0.8 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="#">randnames 0.0.10 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Welcome to randnames’s documentation!</a></li> 
       </ul>
     </div>
