@@ -72,7 +72,9 @@ https://www.ssa.gov/oact/babynames/limits.html
 https://www.census.gov/data/software/x13as/disclaimer.html
 
 # Contribution
+If you want to contribute to randnames projcet read [CONTRIBUTION](CONTRIBUTION.md) for more information.
 
+We are especially looking for help with database creation. More information on how to help/create appropiate data files with names can be found in [database guide](DATABASE_GUIDE.md)
 
 # Authors & Contributors
 
@@ -90,6 +92,10 @@ https://www.census.gov/data/software/x13as/disclaimer.html
 1. [ ] Add equal chances for every name feature
 1. [ ] Support for other countries names
 1. [ ] Add 9 more countries 
+
+# Change log
+
+- PL last names added
 
 # License
 
