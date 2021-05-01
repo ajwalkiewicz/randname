@@ -84,14 +84,12 @@ In odrer to make it work out of the box, a source file has to have the followng 
 | WIŚNIEWSKI        | 72658  |
 | WÓJCIK            | 65836  |
 | KOWALCZYK         | 64736  |
-<- snip ->
-
-| ŽUK-OLSZEWSKI     | 2     |
-|-------------------|-------|
-| ŽUKOVSKI          | 2     |
-| ŽUKOVSKIJ         | 2     |
-| ŽVIRBLIS          | 2     |
-| ŽYBORT            | 2     |
+|<- snip ->         |        | 
+| ŽUK-OLSZEWSKI     | 2      |
+| ŽUKOVSKI          | 2      |
+| ŽUKOVSKIJ         | 2      |
+| ŽVIRBLIS          | 2      |
+| ŽYBORT            | 2      |
 
 ### Example usage
 ```

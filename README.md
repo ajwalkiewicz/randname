@@ -72,7 +72,7 @@ https://www.ssa.gov/oact/babynames/limits.html
 https://www.census.gov/data/software/x13as/disclaimer.html
 
 # Contribution
-If you want to contribute to randnames projcet read [CONTRIBUTION](CONTRIBUTION.md) for more information.
+If you want to contribute to randnames projcet read [contribution](CONTRIBUTION.md) for more information.
 
 We are especially looking for help with database creation. More information on how to help/create appropiate data files with names can be found in [database guide](DATABASE_GUIDE.md)
 
