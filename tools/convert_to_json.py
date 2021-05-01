@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """[summary]
 Convert xlsx to json file compiant with randname module
 """
@@ -60,6 +61,12 @@ def parse_arguments():
         epilog=(EPILOG)
     )
     parser.add_argument(
+        "-t",
+        "--type",
+        required=True,
+        type=str
+    )
+    parser.add_argument(
         "-f",
         "--file",
         type=str,
@@ -87,10 +94,19 @@ def main():
 
     args = parse_arguments()
 
-    
     # validate data exist
 
-    df = pd.read_excel(args.file)
+    file_type = {
+        "csv": pd.read_csv,
+        "xlsx": pd.read_excel
+    } 
+
+    if args.type not in file_type.keys():
+        return False
+    else:
+        df = file_type[args.type](args.file)
+
+    # df = pd.read_excel(args.file)
 
     if not valid_dataframe(df):
         return False
