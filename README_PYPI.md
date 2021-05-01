@@ -15,7 +15,8 @@ pip3 install randnames
 
 # Simple Usage
 
-For more visit project [website](https://github.com/ajwalkiewicz/randnames) or [documentation](https://ajwalkiewicz.github.io/randnames/_build/html/index.html#)
+For more visit project [website](https://github.com/ajwalkiewicz/randnames) or 
+[documentation](https://ajwalkiewicz.github.io/randnames/_build/html/index.html#)
 
 ```
 >>> import randnames
