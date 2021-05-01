@@ -3,12 +3,12 @@ from setuptools import setup
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
-with open(f"{THIS_FOLDER}/README.md", "r") as fh:
+with open(f"{THIS_FOLDER}/README_PYPI.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name="randnames",
-    version="0.0.8",
+    version="0.0.9",
     description="Draw random first and last USA names",
     long_description=long_description,
     long_description_content_type="text/markdown",
