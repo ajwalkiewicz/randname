@@ -29,7 +29,7 @@ class InvalidSexArgument(Exception):
         return f"{self.sex} -> {self.message}"
 
 
-def _draw_name(
+def _get_name(
     name,
     year: int = None,
     sex: str = None,
@@ -94,7 +94,7 @@ def last_name(year: int = None, sex: str = None, country: str = None, weights: b
     >>> last_name()
     'Doe'
     """
-    last_name = _draw_name("last_names", year=year, sex=sex, country=country, weights=weights)
+    last_name = _get_name("last_names", year=year, sex=sex, country=country, weights=weights)
     return last_name
 
 def first_name(year: int = None, sex: str = None, country: str = None, weights: bool = True) -> str:
@@ -112,7 +112,7 @@ def first_name(year: int = None, sex: str = None, country: str = None, weights: 
     >>> first_name()
     'John'
     """
-    first_name = _draw_name("first_names", year=year, sex=sex, country=country, weights=weights)
+    first_name = _get_name("first_names", year=year, sex=sex, country=country, weights=weights)
     return first_name
 
 # Flavor functions
@@ -142,6 +142,37 @@ def available_countries() -> list:
     """
     return os.listdir(os.path.join(_THIS_FOLDER, "data"))
 
+def data_lookup() -> dict:
+    """Return dictionary with imformation about database.
+    {
+        country_name: {
+            first_names: available_sex_as_list,
+            last_names: available_sex_as_list
+            },
+        ...
+    }
+
+    :return: information about database
+    :rtype: dict
+    """
+    result = {}
+
+    for country in available_countries():
+        path_to_info_json = os.path.join(_THIS_FOLDER, "data", country, "info.json")
+
+        with open(path_to_info_json) as info_file:
+            info_dict = json.load(info_file)
+            result.setdefault(
+                info_dict["country"], 
+                {
+                    "first_names": info_dict["first_names"],
+                    "last_names": info_dict["last_names"],
+                })
+
+    return result
+
+
 if __name__ == "__main__":
+    pass
     # last_name()
-    _draw_name("first_names", sex="M", country="US")
+    # _get_name("first_names", sex="M", country="US")
