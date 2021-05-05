@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to randnames’s documentation! &#8212; randnames 0.0.10 documentation</title>
+    <title>Welcome to randnames’s documentation! &#8212; randnames 0.0.11 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     
@@ -26,7 +26,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">randnames 0.0.10 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="#">randnames 0.0.11 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Welcome to randnames’s documentation!</a></li> 
       </ul>
     </div>  
@@ -46,7 +46,7 @@
 </div>
 <dl class="py exception">
 <dt id="randnames.randnames.InvalidSexArgument">
-<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">InvalidSexArgument</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randnames.randnames.InvalidSexArgument" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">InvalidSexArgument</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">available_sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randnames.randnames.InvalidSexArgument" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -59,6 +59,31 @@
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="randnames.randnames.data_lookup">
+<code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">data_lookup</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#randnames.randnames.data_lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dictionary with imformation about database.
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>country_name: {</dt><dd><p>first_names: available_sex_as_list,
+last_names: available_sex_as_list
+},</p>
+</dd>
+</dl>
+<p>…</p>
+</div></blockquote>
+<p>}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>information about database</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -95,7 +120,7 @@
 
 <dl class="py function">
 <dt id="randnames.randnames.full_name">
-<code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">full_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randnames.randnames.full_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">randnames.randnames.</span></code><code class="sig-name descname"><span class="pre">full_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randnames.randnames.full_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return random first and las name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -199,7 +224,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">randnames 0.0.10 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="#">randnames 0.0.11 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Welcome to randnames’s documentation!</a></li> 
       </ul>
     </div>
