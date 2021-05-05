@@ -1,0 +1,69 @@
+#!/bin/bash
+# update package version
+#
+# Author: Adam Walkiewicz
+
+VERBOSE=false
+HELP=false
+SOFTWARE_VERSION_FLAG=false
+SOFTWARE_VERSION=""
+USER=$(head -n 1 credentials)
+PASS=$(tail -n 1 credentials)
+
+while getopts vhs: flag; do
+    case "${flag}" in
+        v) VERBOSE=true;;
+		h) HELP=true;;
+		s) SOFTWARE_VERSION_FLAG=true
+		   SOFTWARE_VERSION=${OPTARG}
+		   ;;
+		*) HELP=true;;
+    esac
+done
+
+echo_help() {
+	echo "Usage: upload [OPTION]"
+	echo "Update version of packages"
+	echo "Example: upload -vs \"1.1.1\""
+	echo ""
+	echo "Output control:"
+	echo " -v 			verbose mode"
+	echo " -h 			help" 
+	echo " -s 			package version"
+	echo ""
+	echo "Report bugs to github.com/awalkiewicz/randnames"
+	echo "Copyright (C) 2021 Adam Walkiewicz.  All rights reserved."
+	exit 1
+}
+
+echo_verbose () {
+    $VERBOSE && echo -e "$*";
+}
+
+change_version(){
+    if $SOFTWARE_VERSION_FLAG; then
+    	rx='^[^a-zA-Z]*[0-9]+\.[^a-zA-Z]*[0-9]+\.[^a-zA-Z]*[0-9]+[^a-zA-Z]*$'
+    	if [[ ! "$SOFTWARE_VERSION" =~ $rx ]]; then
+    		echo -e "\033[31m\e[1minvalid version format: $SOFTWARE_VERSION\e[0m"
+    		echo_help
+    	else
+    		sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" setup.py 
+    		sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" /home/SharedFolder/Git/random-names/docs/conf.py 
+    		sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" /home/SharedFolder/Git/random-names/randnames/__init__.py 
+    	fi
+    fi
+}
+
+main(){
+    change_version
+    # clean dist directory
+    rm -rv -i $(echo dist/*) -y
+    # create package to upload
+    python3 setup.py sdist bdist_wheel
+    # run tests, check packages, uploadd packages
+    python3 -m unittest $(tests/test_*) && twine check $(echo dist/*) && twine upload $(echo "dist/randnames-*") -u $USER -p $PASS
+}
+
+
+$HELP && echo_help
+main
