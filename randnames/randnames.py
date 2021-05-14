@@ -20,6 +20,8 @@ FIRST_NAMES_PATH = os.path.join(_THIS_FOLDER, "data", "US", "first_names")
 # _available_sex = ("M", "F", "N")
 
 class InvalidSexArgument(Exception):
+    """InvalidSexArgument."""
+
     def __init__(self, sex: str, available_sex: list):
         self.sex = sex
         self.available_sex = available_sex
@@ -54,7 +56,6 @@ def _get_name(
     :return: name from database
     :rtype: str
     """
-    
     if not country:
         country = random.choice(_COUNTRIES_BASE)
 
@@ -67,7 +68,7 @@ def _get_name(
 
     if not min(data_range) <= year <= max(data_range):
         message = f"{year} -> {year} not in range {data_range}"
-        warnings.warn(message) 
+        warnings.warn(message)
 
     info = os.path.join(_THIS_FOLDER, "data", country, "info.json")
     with open(info, "r") as info:
@@ -136,12 +137,12 @@ def first_name(year: int = None, sex: str = None, country: str = None, weights: 
 # Flavor functions
 
 def full_name(
-    year: int = None, 
-    first_sex: str = None, 
-    last_sex: str = None, 
-    country: str = None, 
+    year: int = None,
+    first_sex: str = None,
+    last_sex: str = None,
+    country: str = None,
     weights: bool = True) -> str:
-    """Return random first and las name 
+    """Return random first and las name
 
     :param year: year of source database, defaults to None
     :type year: int, optional
@@ -186,7 +187,7 @@ def data_lookup() -> dict:
         with open(path_to_info_json) as info_file:
             info_dict = json.load(info_file)
             result.setdefault(
-                info_dict["country"], 
+                info_dict["country"],
                 {
                     "first_names": info_dict["first_names"],
                     "last_names": info_dict["last_names"],
