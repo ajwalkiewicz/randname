@@ -8,13 +8,15 @@ with open(f"{THIS_FOLDER}/README_PYPI.md", "r") as fh:
 
 setup(
     name="randnames",
-    version="0.0.11",
+    version="0.0.12",
     description="Draw random first and last USA names",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/ajwalkiewicz/randnames",
+    project_urls={
+        "Documentation": "https://ajwalkiewicz.github.io/randnames/_build/html/index.html"
+        },
     author="Adam Walkiewicz",
-    author_email="aj.walkiewicz@gmail.com",
     license="MIT",
     classifiers=[
         "License :: OSI Approved :: MIT License",
@@ -34,7 +36,4 @@ setup(
             "randnames=randnames.__main__:main"
         ]
     }
-    
-    
-    
 )

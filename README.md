@@ -23,13 +23,13 @@ to be done
 
 Randnames is availabe in python repository, and can be downloaded with pip.
 
-```
+```Bash
 pip3 install randnames
 ```
 
 # Usage
 
-```
+```Python
 >>> import randnames
 
 # Get first name

@@ -36,9 +36,9 @@ echo_help() {
 	exit 1
 }
 
-echo_verbose () {
-    $VERBOSE && echo -e "$*";
-}
+# echo_verbose () {
+#     $VERBOSE && echo -e "$*";
+# }
 
 change_version(){
     if $SOFTWARE_VERSION_FLAG; then
@@ -48,8 +48,8 @@ change_version(){
     		echo_help
     	else
     		sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" setup.py 
-    		sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" /home/SharedFolder/Git/random-names/docs/conf.py 
-    		sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" /home/SharedFolder/Git/random-names/randnames/__init__.py 
+    		sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" docs/conf.py 
+    		sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" randnames/__init__.py 
     	fi
     fi
 }
@@ -57,13 +57,15 @@ change_version(){
 main(){
     change_version
     # clean dist directory
-    rm -rv -i $(echo dist/*) -y
+    rm -rv -i $(echo dist/*) 
     # create package to upload
     python3 setup.py sdist bdist_wheel
     # run tests, check packages, uploadd packages
     python3 -m unittest $(tests/test_*) && twine check $(echo dist/*) && twine upload $(echo "dist/randnames-*") -u $USER -p $PASS
+    # make documentation
+    cd docs/
+    make html
 }
-
 
 $HELP && echo_help
 main
