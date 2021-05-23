@@ -1,7 +1,7 @@
 Welcome to randnames's documentation!
 =====================================
 
-.. automodule:: randnames.randnames
+.. automodule:: randname.randname
    :members:
 
 .. toctree::
