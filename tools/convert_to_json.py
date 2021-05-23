@@ -21,18 +21,19 @@ Copyright (C) 2021 Adam Walkiewicz
 
 NAMES = "Names"
 TOTALS = "Totals"
+COUNT = 10000
 
 def valid_dataframe(df) -> bool:
     """Validate dataframe
 
-    :param df: dataframe 
+    :param df: dataframe
     :type df: pandas.core.frame.DataFrame
-    :return: return True if valid. Else False 
+    :return: return True if valid. Else False
     :rtype: bool
     """
 
     if len(df.columns) != 2:
-        return False    
+        return False
 
     return True
 
@@ -99,7 +100,7 @@ def main():
     file_type = {
         "csv": pd.read_csv,
         "xlsx": pd.read_excel
-    } 
+    }
 
     if args.type not in file_type.keys():
         return False
@@ -111,17 +112,17 @@ def main():
     if not valid_dataframe(df):
         return False
 
-    modify_dataframe_names(df) 
+    modify_dataframe_names(df)
 
     convert_weights_to_cumulative(df)
-   
+
     if args.output:
         output_file = args.output
     else:
         output_file = args.file + "_out"
-    
+
     save_to_json(df, output_file=output_file)
-   
+
 if __name__ == "__main__":
     main()
 
