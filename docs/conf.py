@@ -17,12 +17,12 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'randnames'
+project = 'rname'
 copyright = '2021, Adam Walkiewicz'
 author = 'Adam Walkiewicz'
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.1"
+release = "0.2.1"
 
 
 # -- General configuration ---------------------------------------------------

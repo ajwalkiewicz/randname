@@ -7,9 +7,9 @@ with open(f"{THIS_FOLDER}/README_PYPI.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="randnames",
-    version="0.1.1",
-    description="Draw random first and last USA names",
+    name="rname",
+    version="0.2.1",
+    description="Get random first/last name",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/ajwalkiewicz/randnames",
@@ -25,7 +25,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
     ],
-    packages=["randnames"],
+    packages=["randname"],
     include_package_data=True,
     # packages=find_packages("src"),
     # package_dir={'': 'src'},

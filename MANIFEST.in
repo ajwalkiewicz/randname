@@ -1,5 +1,5 @@
 include LICENSE
-recursive-include randnames *.json
-recursive-include randnames *.py
-recursive-include randnames/data *
-recursive-exclude randnames *.ipynb
+recursive-include randname *.json
+recursive-include randname *.py
+recursive-include randname/data *
+recursive-exclude randname *.ipynb

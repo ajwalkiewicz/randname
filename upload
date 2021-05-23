@@ -57,11 +57,12 @@ change_version(){
 main(){
     change_version
     # clean dist directory
+	rm -rv build
     rm -rv -i $(echo dist/*) 
     # create package to upload
     python3 setup.py sdist bdist_wheel
     # run tests, check packages, uploadd packages
-    python3 -m unittest $(tests/test_*) && twine check $(echo dist/*) && twine upload $(echo "dist/randnames-*") -u $USER -p $PASS
+    python3 -m unittest $(tests/test_*) && twine check $(echo dist/*) && twine upload $(echo "dist/r*") -u $USER -p $PASS
     # make documentation
     cd docs/
     make html
