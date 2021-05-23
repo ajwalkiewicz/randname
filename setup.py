@@ -8,7 +8,7 @@ with open(f"{THIS_FOLDER}/README_PYPI.md", "r") as fh:
 
 setup(
     name="randnames",
-    version="0.0.12",
+    version="0.1.1",
     description="Draw random first and last USA names",
     long_description=long_description,
     long_description_content_type="text/markdown",
