@@ -40,15 +40,15 @@ def valid_dataframe(df) -> bool:
 
 def modify_dataframe_names(df):
     df.columns = [NAMES, TOTALS]
-    df[NAMES] = df[NAMES].apply(lambda name: str(name).capitalize())
+    df[NAMES] = df[NAMES].apply(lambda name: str(name).title())
 
 def convert_weights_to_cumulative(df):
     df["Totals"] = np.cumsum(df["Totals"])
 
 def save_to_json(df, output_file: str):
     temp_dict = {
-        NAMES: tuple(df[NAMES]),
-        TOTALS: tuple(df[TOTALS])
+        NAMES: tuple(df[NAMES].head(COUNT)),
+        TOTALS: tuple(df[TOTALS].head(COUNT))
         }
 
     with open(output_file, "w") as json_file:
@@ -105,7 +105,7 @@ def main():
     if args.type not in file_type.keys():
         return False
     else:
-        df = file_type[args.type](args.file)
+        df = file_type[args.type](args.file, usecols=[0, 1])
 
     # df = pd.read_excel(args.file)
 
