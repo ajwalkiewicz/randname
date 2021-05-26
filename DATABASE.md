@@ -8,9 +8,24 @@ All data files are stored in `data` directory.
 
 `data` directory contains direcotries for every currently supported country. Country directories are named acordingly to [Aplha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements). It means that direcotry name is exactly 2 capital letters.
 
-Inside country directory there are 2 separate direcotries. One for first names and one for las names.
+Inside country directory there are 2 separate direcotries and 1 info.json file. One for first names and one for las names.
+ 
 * `first_names`
 * `last_names`
+
+`info.json` file containf information about stored date in country directory.
+For example:
+```JSON
+{
+    "country": "US",
+    "first_names": ["M", "F"],
+    "last_names": ["N"]
+}
+```
+Above `info.json` file contain following information:
+- country: US
+- 2 first names files, one with male names and the other one with female names
+- 1 last name file with neutral lastnames
 
 Inside names diractories, are actuall data files.
 
@@ -53,7 +68,7 @@ randname/data/
         └── 2010_N
 ```
 
-## JSON file structure
+## Names file structure
 
 ```JSON
 {
