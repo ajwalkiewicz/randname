@@ -14,14 +14,16 @@ from .errors import *
 
 _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
+_DEFAULT_DATABASE = os.path.join(_THIS_FOLDER, "data")
 
-# LAST_NAMES_PATH = os.path.join(_THIS_FOLDER, "data", "US", "last_names")
-# FIRST_NAMES_PATH = os.path.join(_THIS_FOLDER, "data", "US", "first_names")
+# Individuoa database path
+database_path = _DEFAULT_DATABASE
+"""
+database_path
+"""
 
-# _available_sex = ("M", "F", "N")
-
-def _get_name(
-    name,
+def get_name(
+    name: str,
     year: int = None,
     sex: str = None,
     country: str = None,
@@ -44,10 +46,17 @@ def _get_name(
     :return: name from database
     :rtype: str
     """
+
+    opt = {
+        "first": "first_names",
+        "last": "last_names",
+        }
+    name = opt.get(name)
+
     if not country:
         country = random.choice(_COUNTRIES_BASE)
 
-    database_files = os.listdir(os.path.join(_THIS_FOLDER, "data", country, name))
+    database_files = os.listdir(os.path.join(database_path, country, name))
     database_years = set(year.split("_")[0] for year in database_files)
     data_range = (int(min(database_years)), int(max(database_years)))
 
@@ -58,7 +67,7 @@ def _get_name(
         message = f"{year} -> {year} not in range {data_range}"
         warnings.warn(message)
 
-    info = os.path.join(_THIS_FOLDER, "data", country, "info.json")
+    info = os.path.join(database_path, country, "info.json")
     with open(info, "r") as info:
         available_sex = json.load(info)[name]
 
@@ -73,7 +82,7 @@ def _get_name(
 
     year = data_range[year_index(data_range, year)]
     data_set_name = f'{year}_{sex}'
-    data_set_path = os.path.join(_THIS_FOLDER, "data", country, name, data_set_name)
+    data_set_path = os.path.join(database_path, country, name, data_set_name)
 
     with open(data_set_path) as json_file:
         data_set = json.load(json_file)
@@ -101,7 +110,7 @@ def last_name(year: int = None, sex: str = None, country: str = None, weights: b
     >>> last_name()
     'Doe'
     """
-    last_name = _get_name("last_names", year, sex, country, weights)
+    last_name = get_name("last", year, sex, country, weights)
     return last_name
 
 def first_name(year: int = None, sex: str = None, country: str = None, weights: bool = True) -> str:
@@ -119,7 +128,7 @@ def first_name(year: int = None, sex: str = None, country: str = None, weights: 
     >>> first_name()
     'John'
     """
-    first_name = _get_name("first_names", year, sex, country, weights)
+    first_name = get_name("first", year, sex, country, weights)
     return first_name
 
 # Flavor functions
@@ -142,7 +151,9 @@ def full_name(
     >>> full_name()
     'John Doe'
     """
-    return f"{first_name(year, first_sex, country, weights)} {last_name(year, last_sex, country, weights)}"
+    first = first_name(year, first_sex, country, weights)
+    last = last_name(year, last_sex, country, weights)
+    return f"{first} {last}"
 
 # Support functions
 
@@ -183,9 +194,8 @@ def data_lookup() -> dict:
 
     return result
 
-
 if __name__ == "__main__":
     pass
     # last_name()
-    # _get_name("first_names", sex="M", country="US")
+    # get_name("first_names", sex="M", country="US")
     # last_name(country="ES", sex="F")
