@@ -1,7 +1,8 @@
 """Main module for randnames
 
->>> import randomnames
->>> randomnames.full_name()
+Simple usage:
+>>> import randomname
+>>> randomname.full_name()
 'John Doe'
 """
 
@@ -16,10 +17,11 @@ _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
 _DEFAULT_DATABASE = os.path.join(_THIS_FOLDER, "data")
 
-# Individuoa database path
 database_path = _DEFAULT_DATABASE
 """
-database_path
+database_path - set dirrection to external database
+
+>>> randname.database_path = "path_to_your_database"
 """
 
 def get_name(
@@ -45,6 +47,11 @@ def get_name(
     for given database
     :return: name from database
     :rtype: str
+
+    >>> get_name("first")
+    "John"
+    >>> get_name("last")
+    "Doe"
     """
 
     opt = {
@@ -157,11 +164,14 @@ def full_name(
 
 # Support functions
 
-def available_countries() -> list:
-    """Return list of available countries
+def available_countries() -> set:
+    """Return set of available countries
 
-    :return: lis of available countries
-    :rtype: list
+    :return: set of available countries
+    :rtype: set
+
+    >>> available_countries()
+    {'ES', 'PL', 'US'}
     """
     return set(os.listdir(os.path.join(_THIS_FOLDER, "data")))
 
@@ -177,6 +187,13 @@ def data_lookup() -> dict:
 
     :return: information about database
     :rtype: dict
+
+    >>> data_lookup()
+    {
+        'ES': {'first_names': ['M'], 'last_names': ['N']}, 
+        'PL': {'first_names': ['M', 'F'], 'last_names': ['M', 'F']},
+        'US': {'first_names': ['M', 'F'], 'last_names': ['N']}
+    }
     """
     result = {}
 
@@ -190,12 +207,14 @@ def data_lookup() -> dict:
                 {
                     "first_names": info_dict["first_names"],
                     "last_names": info_dict["last_names"],
-                })
+                }
+            )
 
     return result
 
 if __name__ == "__main__":
-    pass
-    # last_name()
-    # get_name("first_names", sex="M", country="US")
-    # last_name(country="ES", sex="F")
+    get_name("first")
+    get_name("last")
+    first_name()
+    last_name()
+    full_name()
