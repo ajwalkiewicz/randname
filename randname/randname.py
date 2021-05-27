@@ -43,8 +43,7 @@ def get_name(
     :type country: str, optional
     :param weights: include weights in database, defaults to True
     :type weights: bool, optional
-    :raises InvalidSexArgument: raise when provided sex is not available 
-    for given database
+    :raises InvalidSexArgument: raise when provided sex is not available for given database
     :return: name from database
     :rtype: str
 
@@ -177,13 +176,6 @@ def available_countries() -> set:
 
 def data_lookup() -> dict:
     """Return dictionary with imformation about database.
-    {
-        country_name: {
-            first_names: available_sex_as_list,
-            last_names: available_sex_as_list
-            },
-        ...
-    }
 
     :return: information about database
     :rtype: dict
