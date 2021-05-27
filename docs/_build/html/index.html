@@ -39,40 +39,32 @@
   <div class="section" id="module-randname.randname">
 <span id="welcome-to-randnames-s-documentation"></span><h1>Welcome to randnames’s documentation!<a class="headerlink" href="#module-randname.randname" title="Permalink to this headline">¶</a></h1>
 <p>Main module for randnames</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">randomnames</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">randomnames</span><span class="o">.</span><span class="n">full_name</span><span class="p">()</span>
-<span class="go">&#39;John Doe&#39;</span>
-</pre></div>
-</div>
+<p>Simple usage:
+&gt;&gt;&gt; import randomname
+&gt;&gt;&gt; randomname.full_name()
+‘John Doe’</p>
 <dl class="py function">
 <dt id="randname.randname.available_countries">
-<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">available_countries</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">list</span><a class="headerlink" href="#randname.randname.available_countries" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return list of available countries</p>
+<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">available_countries</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#randname.randname.available_countries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return set of available countries</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>lis of available countries</p>
+<dd class="field-odd"><p>set of available countries</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>list</p>
+<dd class="field-even"><p>set</p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">available_countries</span><span class="p">()</span>
+<span class="go">{&#39;ES&#39;, &#39;PL&#39;, &#39;US&#39;}</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt id="randname.randname.data_lookup">
 <code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">data_lookup</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#randname.randname.data_lookup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return dictionary with imformation about database.
-{</p>
-<blockquote>
-<div><dl class="simple">
-<dt>country_name: {</dt><dd><p>first_names: available_sex_as_list,
-last_names: available_sex_as_list
-},</p>
-</dd>
-</dl>
-<p>…</p>
-</div></blockquote>
-<p>}</p>
+<dd><p>Return dictionary with imformation about database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>information about database</p>
@@ -81,6 +73,23 @@ last_names: available_sex_as_list
 <dd class="field-even"><p>dict</p>
 </dd>
 </dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_lookup</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">    &#39;ES&#39;: {&#39;first_names&#39;: [&#39;M&#39;], &#39;last_names&#39;: [&#39;N&#39;]}, </span>
+<span class="go">    &#39;PL&#39;: {&#39;first_names&#39;: [&#39;M&#39;, &#39;F&#39;], &#39;last_names&#39;: [&#39;M&#39;, &#39;F&#39;]},</span>
+<span class="go">    &#39;US&#39;: {&#39;first_names&#39;: [&#39;M&#39;, &#39;F&#39;], &#39;last_names&#39;: [&#39;N&#39;]}</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py data">
+<dt id="randname.randname.database_path">
+<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">database_path</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'/home/SharedFolder/Git/random-names/randname/data'</span></em><a class="headerlink" href="#randname.randname.database_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>database_path - set dirrection to external database</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">randname</span><span class="o">.</span><span class="n">database_path</span> <span class="o">=</span> <span class="s2">&quot;path_to_your_database&quot;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -133,6 +142,38 @@ last_names: available_sex_as_list
 </dl>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">full_name</span><span class="p">()</span>
 <span class="go">&#39;John Doe&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="randname.randname.get_name">
+<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">get_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randname.randname.get_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>private finction to get either first or last name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – “first_name” or “last_name”</p></li>
+<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p></li>
+<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – name gender, defaults to None</p></li>
+<li><p><strong>country</strong> (<em>str</em><em>, </em><em>optional</em>) – database country, defaults to None</p></li>
+<li><p><strong>weights</strong> (<em>bool</em><em>, </em><em>optional</em>) – include weights in database, defaults to True</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>InvalidSexArgument</strong> – raise when provided sex is not available for given database</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name from database</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_name</span><span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">)</span>
+<span class="go">&quot;John&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_name</span><span class="p">(</span><span class="s2">&quot;last&quot;</span><span class="p">)</span>
+<span class="go">&quot;Doe&quot;</span>
 </pre></div>
 </div>
 </dd></dl>
