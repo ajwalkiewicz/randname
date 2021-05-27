@@ -33,7 +33,7 @@ echo_help() {
     echo " -h 			help" 
     echo " -s 			package version"
     echo ""
-    echo "Report bugs to github.com/awalkiewicz/randnames"
+    echo "Report bugs to github.com/awalkiewicz/randname"
     echo "Copyright (C) 2021 Adam Walkiewicz.  All rights reserved."
     exit 1
 }
@@ -51,7 +51,7 @@ change_version(){
         else
             sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" setup.py 
             sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" docs/conf.py 
-            sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" randnames/__init__.py 
+            sed -i "s,\"[[:digit:]]\+.[[:digit:]]\+.[[:digit:]]\+\",\"$SOFTWARE_VERSION\",g" randname/__init__.py 
         fi
     fi
 }
