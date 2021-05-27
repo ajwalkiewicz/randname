@@ -1,7 +1,8 @@
 """Main module for randnames
 
->>> import randomnames
->>> randomnames.full_name()
+Simple usage:
+>>> import randomname
+>>> randomname.full_name()
 'John Doe'
 """
 
@@ -14,14 +15,17 @@ from .errors import *
 
 _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
+_DEFAULT_DATABASE = os.path.join(_THIS_FOLDER, "data")
 
-# LAST_NAMES_PATH = os.path.join(_THIS_FOLDER, "data", "US", "last_names")
-# FIRST_NAMES_PATH = os.path.join(_THIS_FOLDER, "data", "US", "first_names")
+database_path = _DEFAULT_DATABASE
+"""
+database_path - set dirrection to external database
 
-# _available_sex = ("M", "F", "N")
+>>> randname.database_path = "path_to_your_database"
+"""
 
-def _get_name(
-    name,
+def get_name(
+    name: str,
     year: int = None,
     sex: str = None,
     country: str = None,
@@ -43,11 +47,23 @@ def _get_name(
     for given database
     :return: name from database
     :rtype: str
+
+    >>> get_name("first")
+    "John"
+    >>> get_name("last")
+    "Doe"
     """
+
+    opt = {
+        "first": "first_names",
+        "last": "last_names",
+        }
+    name = opt.get(name)
+
     if not country:
         country = random.choice(_COUNTRIES_BASE)
 
-    database_files = os.listdir(os.path.join(_THIS_FOLDER, "data", country, name))
+    database_files = os.listdir(os.path.join(database_path, country, name))
     database_years = set(year.split("_")[0] for year in database_files)
     data_range = (int(min(database_years)), int(max(database_years)))
 
@@ -58,7 +74,7 @@ def _get_name(
         message = f"{year} -> {year} not in range {data_range}"
         warnings.warn(message)
 
-    info = os.path.join(_THIS_FOLDER, "data", country, "info.json")
+    info = os.path.join(database_path, country, "info.json")
     with open(info, "r") as info:
         available_sex = json.load(info)[name]
 
@@ -73,7 +89,7 @@ def _get_name(
 
     year = data_range[year_index(data_range, year)]
     data_set_name = f'{year}_{sex}'
-    data_set_path = os.path.join(_THIS_FOLDER, "data", country, name, data_set_name)
+    data_set_path = os.path.join(database_path, country, name, data_set_name)
 
     with open(data_set_path) as json_file:
         data_set = json.load(json_file)
@@ -101,7 +117,7 @@ def last_name(year: int = None, sex: str = None, country: str = None, weights: b
     >>> last_name()
     'Doe'
     """
-    last_name = _get_name("last_names", year, sex, country, weights)
+    last_name = get_name("last", year, sex, country, weights)
     return last_name
 
 def first_name(year: int = None, sex: str = None, country: str = None, weights: bool = True) -> str:
@@ -119,7 +135,7 @@ def first_name(year: int = None, sex: str = None, country: str = None, weights: 
     >>> first_name()
     'John'
     """
-    first_name = _get_name("first_names", year, sex, country, weights)
+    first_name = get_name("first", year, sex, country, weights)
     return first_name
 
 # Flavor functions
@@ -142,15 +158,20 @@ def full_name(
     >>> full_name()
     'John Doe'
     """
-    return f"{first_name(year, first_sex, country, weights)} {last_name(year, last_sex, country, weights)}"
+    first = first_name(year, first_sex, country, weights)
+    last = last_name(year, last_sex, country, weights)
+    return f"{first} {last}"
 
 # Support functions
 
-def available_countries() -> list:
-    """Return list of available countries
+def available_countries() -> set:
+    """Return set of available countries
 
-    :return: lis of available countries
-    :rtype: list
+    :return: set of available countries
+    :rtype: set
+
+    >>> available_countries()
+    {'ES', 'PL', 'US'}
     """
     return set(os.listdir(os.path.join(_THIS_FOLDER, "data")))
 
@@ -166,6 +187,13 @@ def data_lookup() -> dict:
 
     :return: information about database
     :rtype: dict
+
+    >>> data_lookup()
+    {
+        'ES': {'first_names': ['M'], 'last_names': ['N']}, 
+        'PL': {'first_names': ['M', 'F'], 'last_names': ['M', 'F']},
+        'US': {'first_names': ['M', 'F'], 'last_names': ['N']}
+    }
     """
     result = {}
 
@@ -179,13 +207,14 @@ def data_lookup() -> dict:
                 {
                     "first_names": info_dict["first_names"],
                     "last_names": info_dict["last_names"],
-                })
+                }
+            )
 
     return result
 
-
 if __name__ == "__main__":
-    pass
-    # last_name()
-    # _get_name("first_names", sex="M", country="US")
-    # last_name(country="ES", sex="F")
+    get_name("first")
+    get_name("last")
+    first_name()
+    last_name()
+    full_name()

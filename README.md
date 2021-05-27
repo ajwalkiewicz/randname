@@ -1,13 +1,23 @@
-# randnames
-Python module to draw random USA names.
+# randname
+Python module to generate random name.
 
-# Summary
+## Summary
 
-to be done
+Randname is a python module for generating random name - first and last. It uses official data from appropiate governmant/scientific reserch centers. 
 
-# Table of Contents
+Names are drawn with the consideration of their frequency. Therefor moste common name wil be drawn much more often (this feature can be disabled).
 
-- [Project Title](#randnames)
+Currently supported cuntries:
+US, PL, ES.
+
+Default database is small, and constrained to 10000 records for each first and last names for every country.
+Default data size: 60 000 records
+
+With the full database downloaded from project [github page](https://github.com/ajwalkiewicz/randname/), the amount of names is increased to around 700 000 records.
+
+## Table of Contents
+
+- [Project Title](#randname)
 - [Summary](#summary)
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
@@ -19,84 +29,100 @@ to be done
 - [To Do](#to-do)
 - [License](#license)
 
-# Installation
+## Installation
 
 Randnames is availabe in python repository, and can be downloaded with pip.
 
 ```Bash
-pip3 install randnames
+pip3 install rname
 ```
 
-# Usage
+## Usage
 
 ```Python
->>> import randnames
+>>> import randname
+
+# Get name
+>>> randname.get_name("first")
+'John'
+>>> randname.get_name("last")
+'Doe'
 
 # Get first name
->>> randnames.first_name()
+>>> randname.first_name()
 'John'
 
 # Get last name
->>> randnames.last_name()
+>>> randname.last_name()
 'Doe'
 
 # Get full name
->>>randnames.full_name()
+>>>randname.full_name()
 'John Doe'
+
+# Setting dirrection to external database
+>>> randname.database_path = "/path/to/external/database/"
 ```
 
-# Documentation
+## Documentation
 
 Detailed documentation of module can by found here:
-[randnames documentation](https://ajwalkiewicz.github.io/randnames/_build/html/index.html#)
+[randname documentation](https://ajwalkiewicz.github.io/randname/_build/html/index.html#)
 
-# Database
+## Database
 
-So far project uses databases from www.census.gov and www.ssa.gov.
+Default database included in pypi package is very small. To not make the package unnecessary too large, every country have one set of data for last and first names (with distinction for the male, female, neutral name), for the most recent year. Each file contains up to 10000 records.
 
-### Last names
+Currently supprted countries:
 
-Databases for USA last names: 
+US:
+- 2010, last names (neutral)
+- 2018, first names (male, female) 
 
-https://www.census.gov/topics/population/genealogy/data/1990_census.html
-https://www.census.gov/topics/population/genealogy/data/2000_surnames.html
-https://www.census.gov/topics/population/genealogy/data/2010_surnames.html
+PL:
+- 2020, last names (male, female)
+- 2021, first names (male, female)
 
-### first names
+ES:
+- 2020, last names (male)
+- 2020, first names (male)
 
-Database for USA first names:
+### Biger database
 
-https://www.ssa.gov/oact/babynames/limits.html
+Full database is bigger and doesn't have the limit of records. If you wan to use it, dowload it from project [github page](https://github.com/ajwalkiewicz/randname/).
 
-### license
-https://www.census.gov/data/software/x13as/disclaimer.html
+To use other databases specify directory by setting `database_path` variable
+```Python
+>>> import randnames
+>>> randnames.database_path = "path_to_your_database"
+```
 
-# Contribution
-If you want to contribute to randnames projcet read [contribution](CONTRIBUTION.md) for more information.
+---
+More details about database can be found [here](DATABASE.md)
 
-We are especially looking for help with database creation. More information on how to help/create appropiate data files with names can be found in [database guide](DATABASE_GUIDE.md)
 
-# Authors & Contributors
+## Contribution
+If you want to contribute to randname projcet read [contribution](CONTRIBUTION.md) for more information.
+
+I am looking especially for help with database creation. More information on how to help/create appropiate data files with names can be found in [database guide](DATABASE.md)
+
+## Authors & Contributors
 
 **Author**: Adam Walkiewicz
 
 **Contributors**: Be first!
 
-# To do
+## To do
 
-1. [ ] Summary
+1. [x] Summary
 1. [ ] Tools
 1. [ ] Contribution guideline
 1. [ ] Unit tests
 1. [ ] Instruction for database creation
-1. [ ] Add equal chances for every name feature
+1. [x] Add equal chances for every name
 1. [ ] Support for other countries names
 1. [ ] Add 9 more countries 
 
-# Change log
-
-- PL last names added
-
-# License
+## License
 
 Randnames is licensed under the terms of the [MIT license](LICENSE)
