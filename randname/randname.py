@@ -2,7 +2,7 @@
 
 Simple usage:
 >>> import randomname
->>> randomname.full_name()
+>>> randoname.full_name()
 'John Doe'
 """
 
@@ -17,12 +17,6 @@ _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
 _DEFAULT_DATABASE = os.path.join(_THIS_FOLDER, "data")
 
-database_path = _DEFAULT_DATABASE
-"""
-database_path - set dirrection to external database
-
->>> randname.database_path = "path_to_your_database"
-"""
 WARNINGS = True
 
 
@@ -31,8 +25,10 @@ def _get_name(
     year: int = None,
     sex: str = None,
     country: str = None,
-    weights: bool = True
-    ) -> str:
+    weights: bool = True,
+    show_warnings: bool = WARNINGS,
+    database_path: str = _DEFAULT_DATABASE
+) -> str:
     """private function to get either first or last name
 
     :param name: "first_name" or "last_name"
@@ -58,7 +54,7 @@ def _get_name(
     opt = {
         "first": "first_names",
         "last": "last_names",
-        }
+    }
     name = opt.get(name)
 
     if not country:
@@ -71,7 +67,7 @@ def _get_name(
     if not year:
         year = random.randint(*data_range)
 
-    if WARNINGS:
+    if show_warnings:
         if not min(data_range) <= year <= max(data_range):
             message = f"{year} -> {year} not in range {data_range}"
             warnings.warn(message)
@@ -87,10 +83,14 @@ def _get_name(
         raise InvalidSexArgument(sex, available_sex)
 
     # Correction of year index. If bisect_left returns int > len(data_range) return bisect_left -1
-    year_index = lambda d, y: bisect_left(d, y) if bisect_left(d, y) != len(d) else bisect_left(d, y) - 1
+    year_index = (
+        lambda d, y: bisect_left(d, y)
+        if bisect_left(d, y) != len(d)
+        else bisect_left(d, y) - 1
+    )
 
     year = data_range[year_index(data_range, year)]
-    data_set_name = f'{year}_{sex}'
+    data_set_name = f"{year}_{sex}"
     data_set_path = os.path.join(database_path, country, name, data_set_name)
 
     with open(data_set_path) as json_file:
@@ -103,9 +103,18 @@ def _get_name(
             last_name = random.choices(name_population)[0]
     return last_name
 
+
 # Main functions
 
-def last_name(year: int = None, sex: str = None, country: str = None, weights: bool = True) -> str:
+
+def last_name(
+    year: int = None,
+    sex: str = None,
+    country: str = None,
+    weights: bool = True,
+    show_warnings: bool = WARNINGS,
+    database_path: str = _DEFAULT_DATABASE
+) -> str:
     """Return random last name
 
     :param year: year of source database, defaults to None
@@ -119,10 +128,18 @@ def last_name(year: int = None, sex: str = None, country: str = None, weights: b
     >>> last_name()
     'Doe'
     """
-    last_name = _get_name("last", year, sex, country, weights)
+    last_name = _get_name("last", year, sex, country, weights, show_warnings, database_path)
     return last_name
 
-def first_name(year: int = None, sex: str = None, country: str = None, weights: bool = True) -> str:
+
+def first_name(
+    year: int = None,
+    sex: str = None,
+    country: str = None,
+    weights: bool = True,
+    show_warnings: bool = WARNINGS,
+    database_path: str = _DEFAULT_DATABASE
+) -> str:
     """Return random first name
 
     :param year: year of source database, defaults to None
@@ -137,17 +154,22 @@ def first_name(year: int = None, sex: str = None, country: str = None, weights: 
     >>> first_name()
     'John'
     """
-    first_name = _get_name("first", year, sex, country, weights)
+    first_name = _get_name("first", year, sex, country, weights, show_warnings, database_path)
     return first_name
 
+
 # Flavor functions
+
 
 def full_name(
     year: int = None,
     first_sex: str = None,
     last_sex: str = None,
     country: str = None,
-    weights: bool = True) -> str:
+    weights: bool = True,
+    show_warnings: bool = WARNINGS,
+    database_path: str = _DEFAULT_DATABASE
+) -> str:
     """Return random first and las name
 
     :param year: year of source database, defaults to None
@@ -160,11 +182,13 @@ def full_name(
     >>> full_name()
     'John Doe'
     """
-    first = first_name(year, first_sex, country, weights)
-    last = last_name(year, last_sex, country, weights)
+    first = first_name(year, first_sex, country, weights, show_warnings, database_path)
+    last = last_name(year, last_sex, country, weights, show_warnings, database_path)
     return f"{first} {last}"
 
+
 # Support functions
+
 
 def available_countries() -> set:
     """Return set of available countries
@@ -177,6 +201,7 @@ def available_countries() -> set:
     """
     return set(os.listdir(os.path.join(_THIS_FOLDER, "data")))
 
+
 def data_lookup() -> dict:
     """Return dictionary with imformation about database.
 
@@ -185,7 +210,7 @@ def data_lookup() -> dict:
 
     >>> data_lookup()
     {
-        'ES': {'first_names': ['M'], 'last_names': ['N']}, 
+        'ES': {'first_names': ['M'], 'last_names': ['N']},
         'PL': {'first_names': ['M', 'F'], 'last_names': ['M', 'F']},
         'US': {'first_names': ['M', 'F'], 'last_names': ['N']}
     }
@@ -202,14 +227,21 @@ def data_lookup() -> dict:
                 {
                     "first_names": info_dict["first_names"],
                     "last_names": info_dict["last_names"],
-                }
+                },
             )
 
     return result
 
+
 if __name__ == "__main__":
-    _get_name("first")
-    _get_name("last")
-    first_name()
-    last_name()
-    full_name()
+    # _get_name("first")
+    # _get_name("last")
+    # first_name()
+    # last_name()
+    # full_name()
+    first_name(year=1925, country="PL")
+    first_name(year=1925, country="PL")
+    first_name(year=1925, country="PL")
+    first_name(year=1925, country="PL")
+    first_name(year=1925, country="PL")
+    first_name(year=1925, country="PL")
