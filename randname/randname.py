@@ -23,15 +23,17 @@ database_path - set dirrection to external database
 
 >>> randname.database_path = "path_to_your_database"
 """
+WARNINGS = True
 
-def get_name(
+
+def _get_name(
     name: str,
     year: int = None,
     sex: str = None,
     country: str = None,
     weights: bool = True
     ) -> str:
-    """private finction to get either first or last name
+    """private function to get either first or last name
 
     :param name: "first_name" or "last_name"
     :type name: str
@@ -47,9 +49,9 @@ def get_name(
     :return: name from database
     :rtype: str
 
-    >>> get_name("first")
+    >>> _get_name("first")
     "John"
-    >>> get_name("last")
+    >>> _get_name("last")
     "Doe"
     """
 
@@ -69,9 +71,10 @@ def get_name(
     if not year:
         year = random.randint(*data_range)
 
-    if not min(data_range) <= year <= max(data_range):
-        message = f"{year} -> {year} not in range {data_range}"
-        warnings.warn(message)
+    if WARNINGS:
+        if not min(data_range) <= year <= max(data_range):
+            message = f"{year} -> {year} not in range {data_range}"
+            warnings.warn(message)
 
     info = os.path.join(database_path, country, "info.json")
     with open(info, "r") as info:
@@ -116,7 +119,7 @@ def last_name(year: int = None, sex: str = None, country: str = None, weights: b
     >>> last_name()
     'Doe'
     """
-    last_name = get_name("last", year, sex, country, weights)
+    last_name = _get_name("last", year, sex, country, weights)
     return last_name
 
 def first_name(year: int = None, sex: str = None, country: str = None, weights: bool = True) -> str:
@@ -134,7 +137,7 @@ def first_name(year: int = None, sex: str = None, country: str = None, weights: 
     >>> first_name()
     'John'
     """
-    first_name = get_name("first", year, sex, country, weights)
+    first_name = _get_name("first", year, sex, country, weights)
     return first_name
 
 # Flavor functions
@@ -205,8 +208,8 @@ def data_lookup() -> dict:
     return result
 
 if __name__ == "__main__":
-    get_name("first")
-    get_name("last")
+    _get_name("first")
+    _get_name("last")
     first_name()
     last_name()
     full_name()
