@@ -21,12 +21,12 @@ class TestRandomNames(unittest.TestCase):
         pass
 
     def test_get_name_no_arguments(self):
-        result = randname.get_name("first")
+        result = randname._get_name("first")
         self.assertIsInstance(result, str)
     
     def test_get_name_year(self):
         year = 1990
-        result = randname.get_name("first", year=year)
+        result = randname._get_name("first", year=year)
         self.assertIsInstance(result, str)
 
     # def test_get_name_sex(self):
@@ -36,18 +36,18 @@ class TestRandomNames(unittest.TestCase):
 
     def test_get_name_country(self):
         country = "US"
-        result = randname.get_name("first", country=country)
+        result = randname._get_name("first", country=country)
         self.assertIsInstance(result, str)
 
     def test_get_name_weights(self):
         weights = False
-        result = randname.get_name("first", weights=weights)
+        result = randname._get_name("first", weights=weights)
         self.assertIsInstance(result, str)
 
     def test_get_name_invalid_sex(self):
         # available_sex = ["M", "F"]
         sex = "D"
-        with self.assertRaises(randname.InvalidSexArgument): randname.get_name("first", sex=sex)
+        with self.assertRaises(randname.InvalidSexArgument): randname._get_name("first", sex=sex)
 
     def test_first_name_no_arguments(self):
         result = randname.first_name()
