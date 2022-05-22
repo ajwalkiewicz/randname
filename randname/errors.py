@@ -1,6 +1,8 @@
 class InvalidSexArgument(Exception):
-    """InvalidSexArgument."""
-
+    """InvalidSexArgument.
+    
+    Raise when selectet sex is not it available for chosen country. 
+    """
     def __init__(self, sex: str, available_sex: list):
         self.sex = sex
         self.available_sex = available_sex

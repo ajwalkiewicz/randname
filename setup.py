@@ -8,7 +8,7 @@ with open(f"{THIS_FOLDER}/README_PYPI.md", "r") as fh:
 
 setup(
     name="rname",
-    version="0.3.0",
+    version="0.3.2",
     description="Get random first/last name",
     long_description=long_description,
     long_description_content_type="text/markdown",

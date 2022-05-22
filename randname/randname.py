@@ -5,7 +5,6 @@ Simple usage:
 >>> randoname.full_name()
 'John Doe'
 """
-
 import random
 import json
 import os
@@ -15,8 +14,8 @@ from .errors import *
 
 _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
-_DEFAULT_DATABASE = os.path.join(_THIS_FOLDER, "data")
 
+DATABASE = os.path.join(_THIS_FOLDER, "data")
 WARNINGS = True
 
 
@@ -27,9 +26,9 @@ def _get_name(
     country: str = None,
     weights: bool = True,
     show_warnings: bool = WARNINGS,
-    database_path: str = _DEFAULT_DATABASE
+    database: str = DATABASE,
 ) -> str:
-    """private function to get either first or last name
+    """Private function to get either first or last name
 
     :param name: "first_name" or "last_name"
     :type name: str
@@ -60,7 +59,7 @@ def _get_name(
     if not country:
         country = random.choice(_COUNTRIES_BASE)
 
-    database_files = os.listdir(os.path.join(database_path, country, name))
+    database_files = os.listdir(os.path.join(database, country, name))
     database_years = set(year.split("_")[0] for year in database_files)
     data_range = (int(min(database_years)), int(max(database_years)))
 
@@ -72,7 +71,7 @@ def _get_name(
             message = f"{year} -> {year} not in range {data_range}"
             warnings.warn(message)
 
-    info = os.path.join(database_path, country, "info.json")
+    info = os.path.join(database, country, "info.json")
     with open(info, "r") as info:
         available_sex = json.load(info)[name]
 
@@ -91,7 +90,7 @@ def _get_name(
 
     year = data_range[year_index(data_range, year)]
     data_set_name = f"{year}_{sex}"
-    data_set_path = os.path.join(database_path, country, name, data_set_name)
+    data_set_path = os.path.join(database, country, name, data_set_name)
 
     with open(data_set_path) as json_file:
         data_set = json.load(json_file)
@@ -113,7 +112,7 @@ def last_name(
     country: str = None,
     weights: bool = True,
     show_warnings: bool = WARNINGS,
-    database_path: str = _DEFAULT_DATABASE
+    database: str = DATABASE,
 ) -> str:
     """Return random last name
 
@@ -128,7 +127,7 @@ def last_name(
     >>> last_name()
     'Doe'
     """
-    last_name = _get_name("last", year, sex, country, weights, show_warnings, database_path)
+    last_name = _get_name("last", year, sex, country, weights, show_warnings, database)
     return last_name
 
 
@@ -138,7 +137,7 @@ def first_name(
     country: str = None,
     weights: bool = True,
     show_warnings: bool = WARNINGS,
-    database_path: str = _DEFAULT_DATABASE
+    database: str = DATABASE,
 ) -> str:
     """Return random first name
 
@@ -154,7 +153,9 @@ def first_name(
     >>> first_name()
     'John'
     """
-    first_name = _get_name("first", year, sex, country, weights, show_warnings, database_path)
+    first_name = _get_name(
+        "first", year, sex, country, weights, show_warnings, database
+    )
     return first_name
 
 
@@ -168,7 +169,7 @@ def full_name(
     country: str = None,
     weights: bool = True,
     show_warnings: bool = WARNINGS,
-    database_path: str = _DEFAULT_DATABASE
+    database: str = DATABASE,
 ) -> str:
     """Return random first and las name
 
@@ -182,8 +183,8 @@ def full_name(
     >>> full_name()
     'John Doe'
     """
-    first = first_name(year, first_sex, country, weights, show_warnings, database_path)
-    last = last_name(year, last_sex, country, weights, show_warnings, database_path)
+    first = first_name(year, first_sex, country, weights, show_warnings, database)
+    last = last_name(year, last_sex, country, weights, show_warnings, database)
     return f"{first} {last}"
 
 
@@ -234,14 +235,17 @@ def data_lookup() -> dict:
 
 
 if __name__ == "__main__":
-    # _get_name("first")
-    # _get_name("last")
-    # first_name()
-    # last_name()
-    # full_name()
-    first_name(year=1925, country="PL")
-    first_name(year=1925, country="PL")
-    first_name(year=1925, country="PL")
-    first_name(year=1925, country="PL")
-    first_name(year=1925, country="PL")
-    first_name(year=1925, country="PL")
+    _get_name("first")
+    _get_name("last")
+    first_name()
+    last_name()
+    full_name()
+
+"""
+.. todolist::
+
+    [ ] P1: Refactor code and review variable names
+    [ ] P1: Move from os.path to Path
+    [ ] P2: Add database validation function
+    [ ] P2: Change warnings to logging module
+"""
