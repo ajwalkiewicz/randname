@@ -5,11 +5,15 @@ Simple usage:
 >>> randoname.full_name()
 'John Doe'
 """
-import random
 import json
+import logging
 import os
+import random
 import warnings
-from bisect import bisect_left
+from bisect import bisect, bisect_left
+
+import randname
+
 from .errors import *
 
 _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
@@ -17,6 +21,13 @@ _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
 
 DATABASE = os.path.join(_THIS_FOLDER, "data")
 WARNINGS = True
+
+randname.set_logging_level("debug")
+
+logging.debug(f"This folder: {_THIS_FOLDER}")
+logging.debug(f"Countries base: {_COUNTRIES_BASE}")
+logging.debug(f"Database: {DATABASE}")
+logging.debug(f"Warnings: " + ("off", "on")[WARNINGS])
 
 
 def _get_name(
@@ -50,6 +61,9 @@ def _get_name(
     "Doe"
     """
 
+    logging.debug(f"Database: {database}")
+    logging.debug(f"Warnings: " + ("OFF", "ON")[show_warnings])
+
     opt = {
         "first": "first_names",
         "last": "last_names",
@@ -61,10 +75,11 @@ def _get_name(
 
     database_files = os.listdir(os.path.join(database, country, name))
     database_years = set(year.split("_")[0] for year in database_files)
-    data_range = (int(min(database_years)), int(max(database_years)))
+    data_range = sorted([int(year) for year in database_years])
 
     if not year:
-        year = random.randint(*data_range)
+        year = random.choice(data_range)
+    logging.debug(f"Year: {year}")
 
     if show_warnings:
         if not min(data_range) <= year <= max(data_range):
@@ -74,6 +89,7 @@ def _get_name(
     info = os.path.join(database, country, "info.json")
     with open(info, "r") as info:
         available_sex = json.load(info)[name]
+        logging.debug(f"Available sex: {available_sex}")
 
     if sex is None:
         sex = random.choice(available_sex)
@@ -81,26 +97,35 @@ def _get_name(
     if str(sex).capitalize() not in available_sex:
         raise InvalidSexArgument(sex, available_sex)
 
-    # Correction of year index. If bisect_left returns int > len(data_range) return bisect_left -1
-    year_index = (
-        lambda d, y: bisect_left(d, y)
-        if bisect_left(d, y) != len(d)
-        else bisect_left(d, y) - 1
-    )
+    # Correction of year index. If bisect_left returns int > len(data_range)
+    # return bisect_left -1. It's in case of very small data sets.
+    def correct_bisect_left(d, y):
+        bisect = bisect_left(d, y)
+        return bisect if bisect != len(d) else bisect - 1
 
-    year = data_range[year_index(data_range, year)]
+    year_index = correct_bisect_left(data_range, year)
+    logging.debug(f"Year index: {year_index}")
+
+    year = data_range[year_index]
     data_set_name = f"{year}_{sex}"
     data_set_path = os.path.join(database, country, name, data_set_name)
 
+    logging.debug(f"Year: {year}")
+    logging.debug(f"Data set name: {data_set_name}")
+    logging.debug(f"Data set path: {data_set_path}")
+
     with open(data_set_path) as json_file:
+        logging.debug(f"Opening: {json_file.name}")
         data_set = json.load(json_file)
         name_population = data_set["Names"]
         name_weights = data_set["Totals"]
         if weights:
-            last_name = random.choices(name_population, cum_weights=name_weights)[0]
+            name = random.choices(name_population, cum_weights=name_weights)[0]
         else:
-            last_name = random.choices(name_population)[0]
-    return last_name
+            name = random.choices(name_population)[0]
+
+    logging.debug(f"Name: {name}")
+    return name
 
 
 # Main functions
@@ -171,18 +196,29 @@ def full_name(
     show_warnings: bool = WARNINGS,
     database: str = DATABASE,
 ) -> str:
-    """Return random first and las name
+    """Return full name
 
-    :param year: year of source database, defaults to None
+    :param year: year of the birth, defaults to None
     :type year: int, optional
-    :param sex: first name gender, defaults to None
-    :type sex: str, optional
-    :return: full name as string
+    :param first_sex: sex for the first name, defaults to None
+    :type first_sex: str, optional
+    :param last_sex: sex for the last name, defaults to None
+    :type last_sex: str, optional
+    :param country: country of origin, defaults to None
+    :type country: str, optional
+    :param weights: use population distribution if True, else treat all names with same probability, defaults to True
+    :type weights: bool, optional
+    :param show_warnings: show warnings, defaults to WARNINGS
+    :type show_warnings: bool, optional
+    :param database: path to database, defaults to DATABASE
+    :type database: str, optional
+    :return: full name
     :rtype: str
 
-    >>> full_name()
+     >>> full_name()
     'John Doe'
     """
+    # TODO: refactor full name to have just one sex parameter
     first = first_name(year, first_sex, country, weights, show_warnings, database)
     last = last_name(year, last_sex, country, weights, show_warnings, database)
     return f"{first} {last}"
