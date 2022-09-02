@@ -22,7 +22,7 @@ _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
 DATABASE = os.path.join(_THIS_FOLDER, "data")
 WARNINGS = True
 
-randname.set_logging_level("debug")
+randname.set_logging_level("error")
 
 logging.debug(f"This folder: {_THIS_FOLDER}")
 logging.debug(f"Countries base: {_COUNTRIES_BASE}")
