@@ -1,3 +1,6 @@
+"""**Error module**"""
+
+
 class InvalidSexArgument(Exception):
     """InvalidSexArgument.
 
@@ -25,3 +28,13 @@ class InvalidCountryName(Exception):
 
     def __str__(self):
         return f"{self.country} -> {self.message}"
+
+
+class InvalidDatabaseStructure(Exception):
+    """Raise when database structure is invalid
+
+    .. todo::
+        To implement
+    """
+
+    ...

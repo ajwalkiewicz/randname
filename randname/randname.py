@@ -1,6 +1,14 @@
-"""Main module for randname
+"""
+**Main module for randname**
 
-Simple usage:
+.. todo::
+    TODO P0: Write unit tests for existing code
+    TODO P1: Refactor code and review variable names
+    TODO P2: Add database validation function
+    TODO P3: Move from os.path to Path
+
+Example usage of module:
+
 >>> import randname
 >>> randname.full_name()
 'John Doe'
@@ -19,7 +27,9 @@ _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
 _PROPER_SEX_OPTIONS = ("M", "F", "N", None)
 
-DATABASE = os.path.join(_THIS_FOLDER, "data")
+# DATABASE = os.path.join(_THIS_FOLDER, "data")
+DATABASE = Path.cwd() / "data"
+
 WARNINGS = True
 
 randname.set_logging_level("error")
@@ -57,7 +67,7 @@ def full_name(
     :return: full name
     :rtype: str
 
-     >>> full_name()
+    >>> full_name()
     'John Doe'
     """
     first_name_available_sex = _available_sex(database, country, "first_names")
@@ -305,7 +315,7 @@ def show_data(path_to_database: str = DATABASE) -> dict:
     :return: information about database
     :rtype: dict
 
-    >>> data_lookup()
+    >>> show_data()
     {
         'ES': {'first_names': ['M'], 'last_names': ['N']},
         'PL': {'first_names': ['M', 'F'], 'last_names': ['M', 'F']},
@@ -331,7 +341,16 @@ def show_data(path_to_database: str = DATABASE) -> dict:
 
 
 def validate_database(path_to_database: Path) -> bool:
-    # TODO: to implement
+    """Validate database
+
+    :param path_to_database: path to database
+    :type path_to_database: Path
+    :return: True if database is valid, else False
+    :rtype: bool
+
+    .. todo::
+        To implement
+    """
     ...
 
 
@@ -341,10 +360,3 @@ if __name__ == "__main__":
     first_name()
     last_name()
     full_name()
-
-"""
-TODO: P0: Write unit tests for existing code
-TODO: P1: Refactor code and review variable names
-TODO: P2: Add database validation function
-TODO: P3: Move from os.path to Path
-"""

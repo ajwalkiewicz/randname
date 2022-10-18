@@ -1,8 +1,6 @@
 import unittest
 import random
 from randname import randname
-from bisect import bisect_left
-from unittest.mock import patch
 
 
 class TestRandomNames(unittest.TestCase):
