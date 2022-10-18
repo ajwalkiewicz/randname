@@ -1,23 +1,23 @@
-"""Main module for randnames
+"""Main module for randname
 
 Simple usage:
->>> import randomname
->>> randoname.full_name()
+>>> import randname
+>>> randname.full_name()
 'John Doe'
 """
 import json
 import logging
 import os
+from pathlib import Path
 import random
 import warnings
-from bisect import bisect, bisect_left
+from bisect import bisect_left
 
-import randname
-
-from .errors import *
+import randname.error
 
 _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
+_PROPER_SEX_OPTIONS = ("M", "F", "N", None)
 
 DATABASE = os.path.join(_THIS_FOLDER, "data")
 WARNINGS = True
@@ -30,8 +30,7 @@ logging.debug(f"Database: {DATABASE}")
 logging.debug(f"Warnings: " + ("off", "on")[WARNINGS])
 
 
-def _get_name(
-    name: str,
+def full_name(
     year: int = None,
     sex: str = None,
     country: str = None,
@@ -39,10 +38,130 @@ def _get_name(
     show_warnings: bool = WARNINGS,
     database: str = DATABASE,
 ) -> str:
+    """Return full name
+
+    :param year: year of birth, defaults to None
+    :type year: int, optional
+    :param sex: sex's name, defaults to None
+    :type sex: str, optional
+    :param country: country of origin, defaults to None
+    :type country: str, optional
+    :param weights: use population distribution if True, else treat all names with same probability, defaults to True
+    :type weights: bool, optional
+    :param show_warnings: show warnings, defaults to WARNINGS
+    :type show_warnings: bool, optional
+    :param database: path to database, defaults to DATABASE
+    :type database: str, optional
+    :raises InvalidSexArgument: if sex is not in proper sex options
+    :raises InvalidCountryName: if country is not in valid countries
+    :return: full name
+    :rtype: str
+
+     >>> full_name()
+    'John Doe'
+    """
+    first_name_available_sex = _available_sex(database, country, "first_names")
+    last_name_available_sex = _available_sex(database, country, "last_names")
+
+    first_name_sex = last_name_sex = sex
+
+    if sex not in _PROPER_SEX_OPTIONS:
+        raise randname.error.InvalidSexArgument(sex, _PROPER_SEX_OPTIONS)
+
+    if sex not in first_name_available_sex:
+        first_name_sex = random.choice(first_name_available_sex)
+
+    if sex not in last_name_available_sex:
+        last_name_sex = random.choice(last_name_available_sex)
+
+    first = first_name(year, first_name_sex, country, weights, show_warnings, database)
+    last = last_name(year, last_name_sex, country, weights, show_warnings, database)
+    return f"{first} {last}"
+
+
+def last_name(
+    year: int = None,
+    sex: str = None,
+    country: str = None,
+    weights: bool = True,
+    show_warnings: bool = WARNINGS,
+    database: str = DATABASE,
+) -> str:
+    """Return random last name
+
+    :param year: year of birth, defaults to None
+    :type year: int, optional
+    :param sex: sex's name, defaults to None
+    :type sex: str, optional
+    :param country: country of origin, defaults to None
+    :type country: str, optional
+    :param weights: use population distribution if True, else treat all names with same probability, defaults to True
+    :type weights: bool, optional
+    :param show_warnings: show warnings, defaults to WARNINGS
+    :type show_warnings: bool, optional
+    :param database: path to database, defaults to DATABASE
+    :type database: str, optional
+    :raises InvalidSexArgument: if sex is not in proper sex options
+    :raises InvalidCountryName: if country is not in valid countries
+    :return: last name
+    :rtype: str
+
+    >>> last_name()
+    'Doe'
+    """
+    last_name = _gen_name("last", year, sex, country, weights, show_warnings, database)
+    return last_name
+
+
+def first_name(
+    year: int = None,
+    sex: str = None,
+    country: str = None,
+    weights: bool = True,
+    show_warnings: bool = WARNINGS,
+    database: str = DATABASE,
+) -> str:
+    """Return random first name
+
+    :param year: year of birth, defaults to None
+    :type year: int, optional
+    :param sex: sex's name, defaults to None
+    :type sex: str, optional
+    :param country: country of origin, defaults to None
+    :type country: str, optional
+    :param weights: use population distribution if True, else treat all names with same probability, defaults to True
+    :type weights: bool, optional
+    :param show_warnings: show warnings, defaults to WARNINGS
+    :type show_warnings: bool, optional
+    :param database: path to database, defaults to DATABASE
+    :type database: str, optional
+    :raises InvalidSexArgument: if sex is not in proper sex options
+    :raises InvalidCountryName: if country is not in valid countries
+    :return: first name
+    :rtype: str
+
+    >>> first_name()
+    'John'
+    """
+    first_name = _gen_name(
+        "first", year, sex, country, weights, show_warnings, database
+    )
+    return first_name
+
+
+def _gen_name(
+    name_type: str,
+    year: int = None,
+    sex: str = None,
+    country: str = None,
+    cum_weights: bool = True,
+    show_warnings: bool = WARNINGS,
+    database: str = DATABASE,
+) -> str:
     """Private function to get either first or last name
 
-    :param name: "first_name" or "last_name"
-    :type name: str
+    :param name_type: "first" or "last"
+    :type name_type: str
     :param year: year of source database, defaults to None
     :type year: int, optional
     :param sex: name gender, defaults to None
@@ -64,38 +183,55 @@ def _get_name(
     logging.debug(f"Database: {database}")
     logging.debug(f"Warnings: " + ("OFF", "ON")[show_warnings])
 
+    name_type = _map_name_to_form_name(name_type)
+    country = _gen_country(country, database)
+    year = _gen_year(year, database, country, name_type, show_warnings)
+    sex = _gen_sex(sex, database, country, name_type)
+
+    name_of_dataset = f"{year}_{sex}"
+    path_to_dataset = os.path.join(database, country, name_type, name_of_dataset)
+
+    logging.debug(f"Year: {year}")
+    logging.debug(f"Data set name: {name_of_dataset}")
+    logging.debug(f"Data set path: {path_to_dataset}")
+
+    return _gen_name_from_file(path_to_dataset, cum_weights)
+
+
+def _map_name_to_form_name(name_type: str) -> str:
     opt = {
         "first": "first_names",
         "last": "last_names",
     }
-    name = opt.get(name)
+    return opt.get(name_type)
 
+
+def _gen_country(country: str, path_to_database: str) -> str:
+    countries = list(available_countries(path_to_database))
     if not country:
-        country = random.choice(_COUNTRIES_BASE)
+        country = random.choice(countries)
+    # TODO: if not countries
+    if country not in countries:
+        raise randname.error.InvalidCountryName(country, countries)
+    return country
 
-    database_files = os.listdir(os.path.join(database, country, name))
+
+def _gen_year(
+    year: int, database: str, country: str, name_type: str, show_warnings
+) -> int:
+    database_files = os.listdir(os.path.join(database, country, name_type))
     database_years = set(year.split("_")[0] for year in database_files)
     data_range = sorted([int(year) for year in database_years])
 
     if not year:
         year = random.choice(data_range)
+
     logging.debug(f"Year: {year}")
 
     if show_warnings:
         if not min(data_range) <= year <= max(data_range):
             message = f"{year} -> {year} not in range {data_range}"
             warnings.warn(message)
-
-    info = os.path.join(database, country, "info.json")
-    with open(info, "r") as info:
-        available_sex = json.load(info)[name]
-        logging.debug(f"Available sex: {available_sex}")
-
-    if sex is None:
-        sex = random.choice(available_sex)
-
-    if str(sex).capitalize() not in available_sex:
-        raise InvalidSexArgument(sex, available_sex)
 
     # Correction of year index. If bisect_left returns int > len(data_range)
     # return bisect_left -1. It's in case of very small data sets.
@@ -106,128 +242,52 @@ def _get_name(
     year_index = correct_bisect_left(data_range, year)
     logging.debug(f"Year index: {year_index}")
 
-    year = data_range[year_index]
-    data_set_name = f"{year}_{sex}"
-    data_set_path = os.path.join(database, country, name, data_set_name)
+    return data_range[year_index]
 
-    logging.debug(f"Year: {year}")
-    logging.debug(f"Data set name: {data_set_name}")
-    logging.debug(f"Data set path: {data_set_path}")
 
-    with open(data_set_path) as json_file:
+def _gen_sex(sex: str, database: str, country: str, name_type: str) -> str:
+    available_sex = _available_sex(database, country, name_type)
+
+    if sex is None:
+        sex = random.choice(available_sex)
+
+    if str(sex).capitalize() not in available_sex:
+        raise randname.error.InvalidSexArgument(sex, available_sex)
+
+    return sex
+
+
+def _available_sex(path_to_dataset: str, country: str, name_type: str):
+    info = os.path.join(path_to_dataset, country, "info.json")
+
+    with open(info, "r") as info:
+        available_sex = json.load(info)[name_type]
+
+    logging.debug(f"Available sex: {available_sex}")
+    return available_sex
+
+
+def _gen_name_from_file(path_to_dataset: str, cum_weights: bool = True) -> str:
+    with open(path_to_dataset) as json_file:
         logging.debug(f"Opening: {json_file.name}")
         data_set = json.load(json_file)
         name_population = data_set["Names"]
-        name_weights = data_set["Totals"]
-        if weights:
-            name = random.choices(name_population, cum_weights=name_weights)[0]
-        else:
-            name = random.choices(name_population)[0]
+        name_cum_weights = data_set["Totals"]
+
+    if cum_weights:
+        name = random.choices(name_population, cum_weights=name_cum_weights)[0]
+    else:
+        name = random.choices(name_population)[0]
 
     logging.debug(f"Name: {name}")
+
     return name
-
-
-# Main functions
-
-
-def last_name(
-    year: int = None,
-    sex: str = None,
-    country: str = None,
-    weights: bool = True,
-    show_warnings: bool = WARNINGS,
-    database: str = DATABASE,
-) -> str:
-    """Return random last name
-
-    :param year: year of source database, defaults to None
-    :type year: int, optional
-    :param country: select database country, defaults to False
-    :type country: str, optional
-    :raises YearNotInRange: throw error if year is not in valid range
-    :return: last name as string
-    :rtype: str
-
-    >>> last_name()
-    'Doe'
-    """
-    last_name = _get_name("last", year, sex, country, weights, show_warnings, database)
-    return last_name
-
-
-def first_name(
-    year: int = None,
-    sex: str = None,
-    country: str = None,
-    weights: bool = True,
-    show_warnings: bool = WARNINGS,
-    database: str = DATABASE,
-) -> str:
-    """Return random first name
-
-    :param year: year of source database, defaults to None
-    :type year: int, optional
-    :param sex: first name gender, defaults to None
-    :type sex: str, optional
-    :raises YearNotInRange: If year is not in valid range
-    :raises InvalidSexArgument: If invalid sex argument
-    :return: first name as string
-    :rtype: str
-
-    >>> first_name()
-    'John'
-    """
-    first_name = _get_name(
-        "first", year, sex, country, weights, show_warnings, database
-    )
-    return first_name
-
-
-# Flavor functions
-
-
-def full_name(
-    year: int = None,
-    first_sex: str = None,
-    last_sex: str = None,
-    country: str = None,
-    weights: bool = True,
-    show_warnings: bool = WARNINGS,
-    database: str = DATABASE,
-) -> str:
-    """Return full name
-
-    :param year: year of the birth, defaults to None
-    :type year: int, optional
-    :param first_sex: sex for the first name, defaults to None
-    :type first_sex: str, optional
-    :param last_sex: sex for the last name, defaults to None
-    :type last_sex: str, optional
-    :param country: country of origin, defaults to None
-    :type country: str, optional
-    :param weights: use population distribution if True, else treat all names with same probability, defaults to True
-    :type weights: bool, optional
-    :param show_warnings: show warnings, defaults to WARNINGS
-    :type show_warnings: bool, optional
-    :param database: path to database, defaults to DATABASE
-    :type database: str, optional
-    :return: full name
-    :rtype: str
-
-     >>> full_name()
-    'John Doe'
-    """
-    # TODO: refactor full name to have just one sex parameter
-    first = first_name(year, first_sex, country, weights, show_warnings, database)
-    last = last_name(year, last_sex, country, weights, show_warnings, database)
-    return f"{first} {last}"
 
 
 # Support functions
 
 
-def available_countries() -> set:
+def available_countries(path_to_database: str = DATABASE) -> set:
     """Return set of available countries
 
     :return: set of available countries
@@ -236,11 +296,11 @@ def available_countries() -> set:
     >>> available_countries()
     {'ES', 'PL', 'US'}
     """
-    return set(os.listdir(os.path.join(_THIS_FOLDER, "data")))
+    return set(os.listdir(path_to_database))
 
 
-def data_lookup() -> dict:
-    """Return dictionary with imformation about database.
+def show_data(path_to_database: str = DATABASE) -> dict:
+    """Return dictionary with information about database.
 
     :return: information about database
     :rtype: dict
@@ -254,8 +314,8 @@ def data_lookup() -> dict:
     """
     result = {}
 
-    for country in available_countries():
-        path_to_info_json = os.path.join(_THIS_FOLDER, "data", country, "info.json")
+    for country in available_countries(path_to_database):
+        path_to_info_json = os.path.join(path_to_database, country, "info.json")
 
         with open(path_to_info_json) as info_file:
             info_dict = json.load(info_file)
@@ -270,18 +330,21 @@ def data_lookup() -> dict:
     return result
 
 
+def validate_database(path_to_database: Path) -> bool:
+    # TODO: to implement
+    ...
+
+
 if __name__ == "__main__":
-    _get_name("first")
-    _get_name("last")
+    _gen_name("first")
+    _gen_name("last")
     first_name()
     last_name()
     full_name()
 
 """
-.. todolist::
-
-    [ ] P1: Refactor code and review variable names
-    [ ] P1: Move from os.path to Path
-    [ ] P2: Add database validation function
-    [ ] P2: Change warnings to logging module
+TODO: P0: Write unit tests for existing code
+TODO: P1: Refactor code and review variable names
+TODO: P2: Add database validation function
+TODO: P3: Move from os.path to Path
 """

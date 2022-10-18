@@ -1,9 +1,8 @@
 import random
 import unittest
-from bisect import bisect_left
-from unittest.mock import patch
 
-from randname import randname
+import randname
+import randname.error
 
 
 class TestRandomNames(unittest.TestCase):
@@ -41,7 +40,7 @@ class TestRandomNames(unittest.TestCase):
 
     def test_last_name_invalid_sex(self):
         sex = "D"
-        with self.assertRaises(randname.InvalidSexArgument):
+        with self.assertRaises(randname.error.InvalidSexArgument):
             randname.last_name(country=self.country, sex=sex)
 
     def test_last_name_year_not_in_range(self):
@@ -74,7 +73,7 @@ class TestRandomNames(unittest.TestCase):
 
     def test_first_name_invalid_sex(self):
         sex = "D"
-        with self.assertRaises(randname.InvalidSexArgument):
+        with self.assertRaises(randname.error.InvalidSexArgument):
             randname.first_name(country=self.country, sex=sex)
 
     def test_first_name_year_not_in_range(self):
@@ -97,11 +96,11 @@ class TestRandomNames(unittest.TestCase):
 
     def test_full_name_sex(self):
         for sex in self.first_names_sex:
-            result = randname.full_name(country=self.country, first_sex=sex)
+            result = randname.full_name(country=self.country, sex=sex)
             self.assertIsInstance(result, str)
 
         for sex in self.last_names_sex:
-            result = randname.full_name(country=self.country, last_sex=sex)
+            result = randname.full_name(country=self.country, sex=sex)
             self.assertIsInstance(result, str)
 
     def test_full_name_year(self):
@@ -115,11 +114,8 @@ class TestRandomNames(unittest.TestCase):
 
     def test_full_name_invalid_sex(self):
         sex = "D"
-        with self.assertRaises(randname.InvalidSexArgument):
-            randname.full_name(country=self.country, first_sex=sex)
-
-        with self.assertRaises(randname.InvalidSexArgument):
-            randname.full_name(country=self.country, last_sex=sex)
+        with self.assertRaises(randname.error.InvalidSexArgument):
+            randname.full_name(country=self.country, sex=sex)
 
     def test_full_name_year_not_in_range(self):
         year = max(self.first_names_year_range) + 1

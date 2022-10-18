@@ -4,6 +4,7 @@ from randname import randname
 from bisect import bisect_left
 from unittest.mock import patch
 
+
 class TestRandomNames(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -29,23 +30,18 @@ class TestRandomNames(unittest.TestCase):
 
     def test_last_name_sex(self):
         for sex in self.last_names_sex:
-            result = randname.last_name(
-                country=self.country, 
-                sex=sex)
+            result = randname.last_name(country=self.country, sex=sex)
             self.assertIsInstance(result, str)
 
     def test_last_name_year(self):
         year = random.choice(self.last_names_year_range)
         result = randname.last_name(country=self.country, year=year)
         self.assertIsInstance(result, str)
-        
 
     def test_last_name_invalid_sex(self):
         sex = "D"
-        with self.assertRaises(
-            randname.InvalidSexArgument): randname.last_name(
-                country=self.country,
-                sex=sex)
+        with self.assertRaises(randname.error.InvalidSexArgument):
+            randname.last_name(country=self.country, sex=sex)
 
     def test_last_name_year_not_in_range(self):
         year = max(self.last_names_year_range) + 1
@@ -61,30 +57,24 @@ class TestRandomNames(unittest.TestCase):
         result = randname.last_name(country=self.country, weights=weights)
         self.assertIsInstance(result, str)
 
-
     def test_first_name_no_arguments(self):
         result = randname.first_name(country=self.country)
         self.assertIsInstance(result, str)
 
     def test_first_name_sex(self):
         for sex in self.first_names_sex:
-            result = randname.first_name(
-                country=self.country, 
-                sex=sex)
+            result = randname.first_name(country=self.country, sex=sex)
             self.assertIsInstance(result, str)
 
     def test_first_name_year(self):
         year = random.choice(self.first_names_year_range)
         result = randname.first_name(country=self.country, year=year)
         self.assertIsInstance(result, str)
-        
 
     def test_first_name_invalid_sex(self):
         sex = "D"
-        with self.assertRaises(
-            randname.InvalidSexArgument): randname.first_name(
-                country=self.country,
-                sex=sex)
+        with self.assertRaises(randname.error.InvalidSexArgument):
+            randname.first_name(country=self.country, sex=sex)
 
     def test_first_name_year_not_in_range(self):
         year = max(self.first_names_year_range) + 1
@@ -106,15 +96,11 @@ class TestRandomNames(unittest.TestCase):
 
     def test_full_name_sex(self):
         for sex in self.first_names_sex:
-            result = randname.full_name(
-                country=self.country, 
-                first_sex=sex)
+            result = randname.full_name(country=self.country, sex=sex)
             self.assertIsInstance(result, str)
 
         for sex in self.last_names_sex:
-            result = randname.full_name(
-                country=self.country, 
-                last_sex=sex)
+            result = randname.full_name(country=self.country, sex=sex)
             self.assertIsInstance(result, str)
 
     def test_full_name_year(self):
@@ -125,19 +111,14 @@ class TestRandomNames(unittest.TestCase):
         year = random.choice(self.last_names_year_range)
         result = randname.full_name(country=self.country, year=year)
         self.assertIsInstance(result, str)
-        
 
     def test_full_name_invalid_sex(self):
         sex = "D"
-        with self.assertRaises(
-            randname.InvalidSexArgument): randname.full_name(
-                country=self.country,
-                first_sex=sex)
-        
-        with self.assertRaises(
-            randname.InvalidSexArgument): randname.full_name(
-                country=self.country,
-                last_sex=sex)
+        with self.assertRaises(randname.error.InvalidSexArgument):
+            randname.full_name(country=self.country, sex=sex)
+
+        with self.assertRaises(randname.error.InvalidSexArgument):
+            randname.full_name(country=self.country, sex=sex)
 
     def test_full_name_year_not_in_range(self):
         year = max(self.first_names_year_range) + 1
@@ -160,6 +141,7 @@ class TestRandomNames(unittest.TestCase):
         weights = False
         result = randname.full_name(country=self.country, weights=weights)
         self.assertIsInstance(result, str)
+
 
 if __name__ == "__main__":
     unittest.main()
