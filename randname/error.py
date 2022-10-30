@@ -30,11 +30,42 @@ class InvalidCountryName(Exception):
         return f"{self.country} -> {self.message}"
 
 
-class InvalidDatabaseStructure(Exception):
-    """Raise when database structure is invalid
+class DirectoryDoesNotExist(Exception):
+    """Raise when specified directory with database does not exist.
 
     .. todo::
-        To implement
+        TODO: To implement
+    """
+
+    ...
+
+
+class MissingInfoFile(Exception):
+    """Raise when info.json file is missing in the country directory.
+
+    .. todo::
+        TODO: To implement
+    """
+
+    ...
+
+
+class FileNameDoesNotMatchPattern(Exception):
+    """Raise when file doesn't match the pattern.
+
+    .. todo::
+        TODO: To implement
+    """
+
+    ...
+
+
+class GenderMismatch(Exception):
+    """Raise when supported genders defined in info.json does not match
+    to what is in corresponding folders
+
+    .. todo::
+        TODO: To implement
     """
 
     ...

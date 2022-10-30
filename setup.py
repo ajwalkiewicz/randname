@@ -29,6 +29,7 @@ setup(
     ],
     packages=["randname"],
     include_package_data=True,
+    install_requires=["jsonschema"],
     # packages=find_packages("src"),
     # package_dir={'': 'src'},
     # package_data={'': ['data/USA/fisrs_names/*']},
