@@ -3,18 +3,18 @@ from setuptools import setup
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
-with open(f"{THIS_FOLDER}/README_PYPI.md", "r") as fh:
+with open(f"{THIS_FOLDER}/README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name="rname",
-    version="0.3.4",
+    version="0.3.6",
     description="Get random first/last name",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/ajwalkiewicz/randnames",
+    url="https://github.com/ajwalkiewicz/randname",
     project_urls={
-        "Documentation": "https://ajwalkiewicz.github.io/randnames/_build/html/index.html"
+        "Documentation": "https://ajwalkiewicz.github.io/randname/_build/html/index.html"
     },
     author="Adam Walkiewicz",
     license="MIT",
@@ -26,6 +26,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ],
     packages=["randname"],
     include_package_data=True,
@@ -34,5 +35,5 @@ setup(
     # package_dir={'': 'src'},
     # package_data={'': ['data/USA/fisrs_names/*']},
     # data_file=[('data', ['USA/fisrs_names/*'])],
-    entry_points={"console_scripts": ["randnames=randnames.__main__:main"]},
+    entry_points={"console_scripts": ["randname=randname.__main__:main"]},
 )

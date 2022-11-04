@@ -2,7 +2,7 @@
 import logging
 
 __title__ = "randname"
-__version__ = "0.3.4"
+__version__ = "0.3.6"
 __author__ = "Adam Walkiewicz"
 __license__ = "MIT"
 
