@@ -9,6 +9,14 @@ randname.randname module
    :undoc-members:
    :show-inheritance:
 
+randname.database module
+------------------------
+
+.. automodule:: randname.database
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 randname.error module
 ---------------------
 

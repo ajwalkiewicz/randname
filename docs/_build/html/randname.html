@@ -48,10 +48,19 @@
 <p><strong>Main module for randname</strong></p>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
-<p>TODO P0: Write unit tests for existing code
-TODO P1: Refactor code and review variable names
-TODO P2: Add database validation function
-TODO P3: Move from os.path to Path</p>
+<p>TODO P0: Write unit tests for existing code</p>
+</div>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>TODO P1: Refactor code and review variable names</p>
+</div>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>TODO P2: Add database validation function</p>
+</div>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>TODO P3: Move from os.path to Path</p>
 </div>
 <p>Example usage of module:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">randname</span>
@@ -59,9 +68,35 @@ TODO P3: Move from os.path to Path</p>
 <span class="go">&#39;John Doe&#39;</span>
 </pre></div>
 </div>
+<dl class="py class">
+<dt class="sig sig-object py" id="randname.randname.Randname">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">Randname</span></span><a class="headerlink" href="#randname.randname.Randname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.randname.Randname.database">
+<span class="sig-name descname"><span class="pre">database</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;randname.database.Database</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#randname.randname.Randname.database" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="randname.randname.Randname.full_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">full_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.randname.Randname.full_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="randname.randname.Randname.first_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">first_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.randname.Randname.first_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="randname.randname.Randname.last_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">last_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.randname.Randname.last_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="randname.randname.full_name">
-<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">full_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/walu/Git/randname/docs/data')</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#randname.randname.full_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">full_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">WARNINGS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#randname.randname.full_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return full name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -95,7 +130,7 @@ TODO P3: Move from os.path to Path</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="randname.randname.last_name">
-<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">last_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/walu/Git/randname/docs/data')</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#randname.randname.last_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">last_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">WARNINGS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#randname.randname.last_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return random last name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -129,7 +164,7 @@ TODO P3: Move from os.path to Path</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="randname.randname.first_name">
-<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">first_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/walu/Git/randname/docs/data')</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#randname.randname.first_name" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">first_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">WARNINGS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#randname.randname.first_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return random first name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -163,7 +198,7 @@ TODO P3: Move from os.path to Path</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="randname.randname.available_countries">
-<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">available_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/walu/Git/randname/docs/data')</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span></span></span><a class="headerlink" href="#randname.randname.available_countries" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">available_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span></span></span><a class="headerlink" href="#randname.randname.available_countries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return set of available countries</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -181,7 +216,7 @@ TODO P3: Move from os.path to Path</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="randname.randname.show_data">
-<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">show_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">PosixPath('/home/walu/Git/randname/docs/data')</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#randname.randname.show_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">show_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#randname.randname.show_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return dictionary with information about database.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -216,10 +251,75 @@ TODO P3: Move from os.path to Path</p>
 <dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>To implement</p>
-</div>
+</dd></dl>
+
+</section>
+<section id="module-randname.database">
+<span id="randname-database-module"></span><h2>randname.database module<a class="headerlink" href="#module-randname.database" title="Permalink to this headline">¶</a></h2>
+<p><strong>Database module</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="randname.database.Database">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.database.</span></span><span class="sig-name descname"><span class="pre">Database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.database.Database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.database.Database.schema_info_json">
+<span class="sig-name descname"><span class="pre">schema_info_json</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'additionalProperties':</span> <span class="pre">False,</span> <span class="pre">'description':</span> <span class="pre">'Schema</span> <span class="pre">for</span> <span class="pre">info.json</span> <span class="pre">file',</span> <span class="pre">'properties':</span> <span class="pre">{'country':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'first_names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'},</span> <span class="pre">'last_names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'}},</span> <span class="pre">'required':</span> <span class="pre">['country',</span> <span class="pre">'first_names',</span> <span class="pre">'last_names'],</span> <span class="pre">'title':</span> <span class="pre">'info.json</span> <span class="pre">schema',</span> <span class="pre">'type':</span> <span class="pre">'object'}</span></em><a class="headerlink" href="#randname.database.Database.schema_info_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.database.Database.schema_name_json">
+<span class="sig-name descname"><span class="pre">schema_name_json</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'additionalProperties':</span> <span class="pre">False,</span> <span class="pre">'description':</span> <span class="pre">'Schema</span> <span class="pre">for</span> <span class="pre">last</span> <span class="pre">and</span> <span class="pre">first</span> <span class="pre">names</span> <span class="pre">files',</span> <span class="pre">'properties':</span> <span class="pre">{'Names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'},</span> <span class="pre">'Totals':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'number'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'}},</span> <span class="pre">'required':</span> <span class="pre">['Names',</span> <span class="pre">'Totals'],</span> <span class="pre">'title':</span> <span class="pre">'first_names</span> <span class="pre">and</span> <span class="pre">last_names</span> <span class="pre">schema',</span> <span class="pre">'type':</span> <span class="pre">'object'}</span></em><a class="headerlink" href="#randname.database.Database.schema_name_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.database.Database.draft_validator_info">
+<span class="sig-name descname"><span class="pre">draft_validator_info</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Draft7Validator(schema={'additionalProperties':</span> <span class="pre">False,</span> <span class="pre">'description':</span> <span class="pre">'Schema</span> <span class="pre">for</span> <span class="pre">info.json</span> <span class="pre">file',</span> <span class="pre">'properties':</span> <span class="pre">{'country':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'first_names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'},</span> <span class="pre">'last_names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'}},</span> <span class="pre">'required':</span> <span class="pre">['country',</span> <span class="pre">'first_names',</span> <span class="pre">'last_names'],</span> <span class="pre">...},</span> <span class="pre">format_checker=None)</span></em><a class="headerlink" href="#randname.database.Database.draft_validator_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.database.Database.draft_validator_name">
+<span class="sig-name descname"><span class="pre">draft_validator_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Draft7Validator(schema={'additionalProperties':</span> <span class="pre">False,</span> <span class="pre">'description':</span> <span class="pre">'Schema</span> <span class="pre">for</span> <span class="pre">l...t</span> <span class="pre">names</span> <span class="pre">files',</span> <span class="pre">'properties':</span> <span class="pre">{'Names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'},</span> <span class="pre">'Totals':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'number'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'}},</span> <span class="pre">'required':</span> <span class="pre">['Names',</span> <span class="pre">'Totals'],</span> <span class="pre">...},</span> <span class="pre">format_checker=None)</span></em><a class="headerlink" href="#randname.database.Database.draft_validator_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="randname.database.Database.path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pathlib.Path</span></em><a class="headerlink" href="#randname.database.Database.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>path to database</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="randname.database.Database.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#randname.database.Database.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if database has valid structure and it’s files are
+correctly formatted.</p>
+<dl class="simple">
+<dt>..warning::</dt><dd><p>Validating database might take some time, depends how large is the database.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path_to_database</strong> (<em>Union</em><em>[</em><em>Path</em><em>, </em><em>str</em><em>]</em>) – path to database</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#randname.error.DirectoryDoesNotExist" title="randname.error.DirectoryDoesNotExist"><strong>randname.error.DirectoryDoesNotExist</strong></a> – raise when directory with database does not exist.</p></li>
+<li><p><a class="reference internal" href="#randname.error.MissingInfoFile" title="randname.error.MissingInfoFile"><strong>randname.error.MissingInfoFile</strong></a> – raise when info.json is missing.</p></li>
+<li><p><a class="reference internal" href="#randname.error.GenderMismatch" title="randname.error.GenderMismatch"><strong>randname.error.GenderMismatch</strong></a> – raise when gender information in info.json does not match to what is in directories.</p></li>
+<li><p><a class="reference internal" href="#randname.error.FileNameDoesNotMatchPattern" title="randname.error.FileNameDoesNotMatchPattern"><strong>randname.error.FileNameDoesNotMatchPattern</strong></a> – raise when file with names doesn’t mach naming convention.</p></li>
+<li><p><strong>jsonschema.ValidationError</strong> – raise when json file doesn’t match pattern.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -242,13 +342,47 @@ TODO P3: Move from os.path to Path</p>
 </dd></dl>
 
 <dl class="py exception">
-<dt class="sig sig-object py" id="randname.error.InvalidDatabaseStructure">
-<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">InvalidDatabaseStructure</span></span><a class="headerlink" href="#randname.error.InvalidDatabaseStructure" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="randname.error.DirectoryDoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">DirectoryDoesNotExist</span></span><a class="headerlink" href="#randname.error.DirectoryDoesNotExist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
-<p>Raise when database structure is invalid</p>
-<div class="admonition-todo admonition" id="id3">
+<p>Raise when specified directory with database does not exist.</p>
+<div class="admonition-todo admonition" id="id5">
 <p class="admonition-title">Todo</p>
-<p>To implement</p>
+<p>TODO: To implement</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="randname.error.MissingInfoFile">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">MissingInfoFile</span></span><a class="headerlink" href="#randname.error.MissingInfoFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when info.json file is missing in the country directory.</p>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="randname.error.FileNameDoesNotMatchPattern">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">FileNameDoesNotMatchPattern</span></span><a class="headerlink" href="#randname.error.FileNameDoesNotMatchPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when file doesn’t match the pattern.</p>
+<div class="admonition-todo admonition" id="id7">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="randname.error.GenderMismatch">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">GenderMismatch</span></span><a class="headerlink" href="#randname.error.GenderMismatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when supported genders defined in info.json does not match
+to what is in corresponding folders</p>
+<div class="admonition-todo admonition" id="id8">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
 </div>
 </dd></dl>
 
@@ -267,6 +401,7 @@ TODO P3: Move from os.path to Path</p>
     <ul>
 <li><a class="reference internal" href="#">randname package</a><ul>
 <li><a class="reference internal" href="#module-randname.randname">randname.randname module</a></li>
+<li><a class="reference internal" href="#module-randname.database">randname.database module</a></li>
 <li><a class="reference internal" href="#module-randname.error">randname.error module</a></li>
 </ul>
 </li>
