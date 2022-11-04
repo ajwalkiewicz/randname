@@ -60,3 +60,6 @@ autodoc_member_order = "bysource"
 # Todo
 todo_include_todos = True
 todo_emit_warnings = True
+
+# Preserve defaults values in documentation, instead of expanding it to eg. local path
+autodoc_preserve_defaults = True
