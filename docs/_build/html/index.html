@@ -4,18 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to randnames’s documentation! &#8212; rname 0.2.2 documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Welcome to randnames’s documentation! &#8212; rname 0.3.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="randname package" href="randname.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -26,7 +28,10 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">rname 0.2.2 documentation</a> &#187;</li>
+        <li class="right" >
+          <a href="randname.html" title="randname package"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">rname 0.3.4 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Welcome to randnames’s documentation!</a></li> 
       </ul>
     </div>  
@@ -36,186 +41,67 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-randname.randname">
-<span id="welcome-to-randnames-s-documentation"></span><h1>Welcome to randnames’s documentation!<a class="headerlink" href="#module-randname.randname" title="Permalink to this headline">¶</a></h1>
-<p>Main module for randnames</p>
-<p>Simple usage:
-&gt;&gt;&gt; import randomname
-&gt;&gt;&gt; randomname.full_name()
-‘John Doe’</p>
-<dl class="py function">
-<dt id="randname.randname.available_countries">
-<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">available_countries</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">set</span><a class="headerlink" href="#randname.randname.available_countries" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return set of available countries</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>set of available countries</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>set</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">available_countries</span><span class="p">()</span>
-<span class="go">{&#39;ES&#39;, &#39;PL&#39;, &#39;US&#39;}</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="randname.randname.data_lookup">
-<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">data_lookup</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#randname.randname.data_lookup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return dictionary with imformation about database.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>information about database</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_lookup</span><span class="p">()</span>
-<span class="go">{</span>
-<span class="go">    &#39;ES&#39;: {&#39;first_names&#39;: [&#39;M&#39;], &#39;last_names&#39;: [&#39;N&#39;]}, </span>
-<span class="go">    &#39;PL&#39;: {&#39;first_names&#39;: [&#39;M&#39;, &#39;F&#39;], &#39;last_names&#39;: [&#39;M&#39;, &#39;F&#39;]},</span>
-<span class="go">    &#39;US&#39;: {&#39;first_names&#39;: [&#39;M&#39;, &#39;F&#39;], &#39;last_names&#39;: [&#39;N&#39;]}</span>
-<span class="go">}</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py data">
-<dt id="randname.randname.database_path">
-<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">database_path</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'/home/SharedFolder/Git/random-names/randname/data'</span></em><a class="headerlink" href="#randname.randname.database_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>database_path - set dirrection to external database</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">randname</span><span class="o">.</span><span class="n">database_path</span> <span class="o">=</span> <span class="s2">&quot;path_to_your_database&quot;</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="randname.randname.first_name">
-<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">first_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randname.randname.first_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return random first name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p></li>
-<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – first name gender, defaults to None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>YearNotInRange</strong> – If year is not in valid range</p></li>
-<li><p><strong>InvalidSexArgument</strong> – If invalid sex argument</p></li>
-</ul>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>first name as string</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">first_name</span><span class="p">()</span>
-<span class="go">&#39;John&#39;</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="randname.randname.full_name">
-<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">full_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randname.randname.full_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return random first and las name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p></li>
-<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – first name gender, defaults to None</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>full name as string</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">full_name</span><span class="p">()</span>
-<span class="go">&#39;John Doe&#39;</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="randname.randname.get_name">
-<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">get_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randname.randname.get_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>private finction to get either first or last name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<em>str</em>) – “first_name” or “last_name”</p></li>
-<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p></li>
-<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – name gender, defaults to None</p></li>
-<li><p><strong>country</strong> (<em>str</em><em>, </em><em>optional</em>) – database country, defaults to None</p></li>
-<li><p><strong>weights</strong> (<em>bool</em><em>, </em><em>optional</em>) – include weights in database, defaults to True</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>InvalidSexArgument</strong> – raise when provided sex is not available for given database</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>name from database</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_name</span><span class="p">(</span><span class="s2">&quot;first&quot;</span><span class="p">)</span>
-<span class="go">&quot;John&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">get_name</span><span class="p">(</span><span class="s2">&quot;last&quot;</span><span class="p">)</span>
-<span class="go">&quot;Doe&quot;</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="randname.randname.last_name">
-<code class="sig-prename descclassname"><span class="pre">randname.randname.</span></code><code class="sig-name descname"><span class="pre">last_name</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#randname.randname.last_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return random last name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of source database, defaults to None</p></li>
-<li><p><strong>country</strong> (<em>str</em><em>, </em><em>optional</em>) – select database country, defaults to False</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>YearNotInRange</strong> – throw error if year is not in valid range</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>last name as string</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">last_name</span><span class="p">()</span>
-<span class="go">&#39;Doe&#39;</span>
-</pre></div>
-</div>
-</dd></dl>
-
+  <section id="welcome-to-randnames-s-documentation">
+<h1>Welcome to randnames’s documentation!<a class="headerlink" href="#welcome-to-randnames-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="randname.html">randname package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="randname.html#module-randname.randname">randname.randname module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="randname.html#module-randname.database">randname.database module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="randname.html#module-randname.error">randname.error module</a></li>
+</ul>
+</li>
+</ul>
 </div>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>TODO P0: Write unit tests for existing code</p>
 </div>
-<div class="section" id="indices-and-tables">
+<p class="todo-source">(The <a class="reference internal" href="randname.html#id1"><em>original entry</em></a> is located in /home/walu/Git/randname/randname/randname.py:docstring of randname.randname, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>TODO P1: Refactor code and review variable names</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="randname.html#id2"><em>original entry</em></a> is located in /home/walu/Git/randname/randname/randname.py:docstring of randname.randname, line 5.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>TODO P2: Add database validation function</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="randname.html#id3"><em>original entry</em></a> is located in /home/walu/Git/randname/randname/randname.py:docstring of randname.randname, line 7.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>TODO P3: Move from os.path to Path</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="randname.html#id4"><em>original entry</em></a> is located in /home/walu/Git/randname/randname/randname.py:docstring of randname.randname, line 9.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="randname.html#id5"><em>original entry</em></a> is located in /home/walu/Git/randname/randname/error.py:docstring of randname.error.DirectoryDoesNotExist, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="randname.html#id6"><em>original entry</em></a> is located in /home/walu/Git/randname/randname/error.py:docstring of randname.error.MissingInfoFile, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="randname.html#id7"><em>original entry</em></a> is located in /home/walu/Git/randname/randname/error.py:docstring of randname.error.FileNameDoesNotMatchPattern, line 3.)</p>
+<div class="admonition-todo admonition">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="randname.html#id8"><em>original entry</em></a> is located in /home/walu/Git/randname/randname/error.py:docstring of randname.error.GenderMismatch, line 4.)</p>
+</section>
+<section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</div>
+</section>
 
 
             <div class="clearer"></div>
@@ -224,12 +110,19 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table of Contents</a></h3>
-  <ul>
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
 <li><a class="reference internal" href="#">Welcome to randnames’s documentation!</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="randname.html"
+                          title="next chapter">randname package</a></p>
+  </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -241,7 +134,7 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -260,13 +153,16 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">rname 0.2.2 documentation</a> &#187;</li>
+        <li class="right" >
+          <a href="randname.html" title="randname package"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">rname 0.3.4 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Welcome to randnames’s documentation!</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Adam Walkiewicz.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

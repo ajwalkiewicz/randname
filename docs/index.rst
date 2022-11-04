@@ -1,13 +1,12 @@
 Welcome to randnames's documentation!
 =====================================
 
-.. automodule:: randname.randname
-   :members:
-
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 3
 
+   randname
+
+.. todolist::
 
 
 Indices and tables

@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>randname package &#8212; rname 0.3.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to randnames’s documentation!" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to randnames’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rname 0.3.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">randname package</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="randname-package">
+<h1>randname package<a class="headerlink" href="#randname-package" title="Permalink to this headline">¶</a></h1>
+<section id="module-randname.randname">
+<span id="randname-randname-module"></span><h2>randname.randname module<a class="headerlink" href="#module-randname.randname" title="Permalink to this headline">¶</a></h2>
+<p><strong>Main module for randname</strong></p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>TODO P0: Write unit tests for existing code</p>
+</div>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>TODO P1: Refactor code and review variable names</p>
+</div>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>TODO P2: Add database validation function</p>
+</div>
+<div class="admonition-todo admonition" id="id4">
+<p class="admonition-title">Todo</p>
+<p>TODO P3: Move from os.path to Path</p>
+</div>
+<p>Example usage of module:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">randname</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">randname</span><span class="o">.</span><span class="n">full_name</span><span class="p">()</span>
+<span class="go">&#39;John Doe&#39;</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="randname.randname.Randname">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">Randname</span></span><a class="headerlink" href="#randname.randname.Randname" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.randname.Randname.database">
+<span class="sig-name descname"><span class="pre">database</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;randname.database.Database</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#randname.randname.Randname.database" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="randname.randname.Randname.full_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">full_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.randname.Randname.full_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="randname.randname.Randname.first_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">first_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.randname.Randname.first_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="randname.randname.Randname.last_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">last_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.randname.Randname.last_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="randname.randname.full_name">
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">full_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">WARNINGS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#randname.randname.full_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return full name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of birth, defaults to None</p></li>
+<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – sex’s name, defaults to None</p></li>
+<li><p><strong>country</strong> (<em>str</em><em>, </em><em>optional</em>) – country of origin, defaults to None</p></li>
+<li><p><strong>weights</strong> (<em>bool</em><em>, </em><em>optional</em>) – use population distribution if True, else treat all names with same probability, defaults to True</p></li>
+<li><p><strong>show_warnings</strong> (<em>bool</em><em>, </em><em>optional</em>) – show warnings, defaults to WARNINGS</p></li>
+<li><p><strong>database</strong> (<em>str</em><em>, </em><em>optional</em>) – path to database, defaults to DATABASE</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#randname.error.InvalidSexArgument" title="randname.error.InvalidSexArgument"><strong>InvalidSexArgument</strong></a> – if sex is not in proper sex options</p></li>
+<li><p><a class="reference internal" href="#randname.error.InvalidCountryName" title="randname.error.InvalidCountryName"><strong>InvalidCountryName</strong></a> – if country is not in valid countries</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>full name</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">full_name</span><span class="p">()</span>
+<span class="go">&#39;John Doe&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="randname.randname.last_name">
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">last_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">WARNINGS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#randname.randname.last_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random last name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of birth, defaults to None</p></li>
+<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – sex’s name, defaults to None</p></li>
+<li><p><strong>country</strong> (<em>str</em><em>, </em><em>optional</em>) – country of origin, defaults to None</p></li>
+<li><p><strong>weights</strong> (<em>bool</em><em>, </em><em>optional</em>) – use population distribution if True, else treat all names with same probability, defaults to True</p></li>
+<li><p><strong>show_warnings</strong> (<em>bool</em><em>, </em><em>optional</em>) – show warnings, defaults to WARNINGS</p></li>
+<li><p><strong>database</strong> (<em>str</em><em>, </em><em>optional</em>) – path to database, defaults to DATABASE</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#randname.error.InvalidSexArgument" title="randname.error.InvalidSexArgument"><strong>InvalidSexArgument</strong></a> – if sex is not in proper sex options</p></li>
+<li><p><a class="reference internal" href="#randname.error.InvalidCountryName" title="randname.error.InvalidCountryName"><strong>InvalidCountryName</strong></a> – if country is not in valid countries</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>last name</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">last_name</span><span class="p">()</span>
+<span class="go">&#39;Doe&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="randname.randname.first_name">
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">first_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_warnings</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">WARNINGS</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#randname.randname.first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return random first name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>year</strong> (<em>int</em><em>, </em><em>optional</em>) – year of birth, defaults to None</p></li>
+<li><p><strong>sex</strong> (<em>str</em><em>, </em><em>optional</em>) – sex’s name, defaults to None</p></li>
+<li><p><strong>country</strong> (<em>str</em><em>, </em><em>optional</em>) – country of origin, defaults to None</p></li>
+<li><p><strong>weights</strong> (<em>bool</em><em>, </em><em>optional</em>) – use population distribution if True, else treat all names with same probability, defaults to True</p></li>
+<li><p><strong>show_warnings</strong> (<em>bool</em><em>, </em><em>optional</em>) – show warnings, defaults to WARNINGS</p></li>
+<li><p><strong>database</strong> (<em>str</em><em>, </em><em>optional</em>) – path to database, defaults to DATABASE</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#randname.error.InvalidSexArgument" title="randname.error.InvalidSexArgument"><strong>InvalidSexArgument</strong></a> – if sex is not in proper sex options</p></li>
+<li><p><a class="reference internal" href="#randname.error.InvalidCountryName" title="randname.error.InvalidCountryName"><strong>InvalidCountryName</strong></a> – if country is not in valid countries</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>first name</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">first_name</span><span class="p">()</span>
+<span class="go">&#39;John&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="randname.randname.available_countries">
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">available_countries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">set</span></span></span><a class="headerlink" href="#randname.randname.available_countries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return set of available countries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>set of available countries</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>set</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">available_countries</span><span class="p">()</span>
+<span class="go">{&#39;ES&#39;, &#39;PL&#39;, &#39;US&#39;}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="randname.randname.show_data">
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">show_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">DATABASE</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#randname.randname.show_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dictionary with information about database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>information about database</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">show_data</span><span class="p">()</span>
+<span class="go">{</span>
+<span class="go">    &#39;ES&#39;: {&#39;first_names&#39;: [&#39;M&#39;], &#39;last_names&#39;: [&#39;N&#39;]},</span>
+<span class="go">    &#39;PL&#39;: {&#39;first_names&#39;: [&#39;M&#39;, &#39;F&#39;], &#39;last_names&#39;: [&#39;M&#39;, &#39;F&#39;]},</span>
+<span class="go">    &#39;US&#39;: {&#39;first_names&#39;: [&#39;M&#39;, &#39;F&#39;], &#39;last_names&#39;: [&#39;N&#39;]}</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="randname.randname.validate_database">
+<span class="sig-prename descclassname"><span class="pre">randname.randname.</span></span><span class="sig-name descname"><span class="pre">validate_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#randname.randname.validate_database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path_to_database</strong> (<em>Path</em>) – path to database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if database is valid, else False</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-randname.database">
+<span id="randname-database-module"></span><h2>randname.database module<a class="headerlink" href="#module-randname.database" title="Permalink to this headline">¶</a></h2>
+<p><strong>Database module</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="randname.database.Database">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.database.</span></span><span class="sig-name descname"><span class="pre">Database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.database.Database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.database.Database.schema_info_json">
+<span class="sig-name descname"><span class="pre">schema_info_json</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'additionalProperties':</span> <span class="pre">False,</span> <span class="pre">'description':</span> <span class="pre">'Schema</span> <span class="pre">for</span> <span class="pre">info.json</span> <span class="pre">file',</span> <span class="pre">'properties':</span> <span class="pre">{'country':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'first_names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'},</span> <span class="pre">'last_names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'}},</span> <span class="pre">'required':</span> <span class="pre">['country',</span> <span class="pre">'first_names',</span> <span class="pre">'last_names'],</span> <span class="pre">'title':</span> <span class="pre">'info.json</span> <span class="pre">schema',</span> <span class="pre">'type':</span> <span class="pre">'object'}</span></em><a class="headerlink" href="#randname.database.Database.schema_info_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.database.Database.schema_name_json">
+<span class="sig-name descname"><span class="pre">schema_name_json</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'additionalProperties':</span> <span class="pre">False,</span> <span class="pre">'description':</span> <span class="pre">'Schema</span> <span class="pre">for</span> <span class="pre">last</span> <span class="pre">and</span> <span class="pre">first</span> <span class="pre">names</span> <span class="pre">files',</span> <span class="pre">'properties':</span> <span class="pre">{'Names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'},</span> <span class="pre">'Totals':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'number'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'}},</span> <span class="pre">'required':</span> <span class="pre">['Names',</span> <span class="pre">'Totals'],</span> <span class="pre">'title':</span> <span class="pre">'first_names</span> <span class="pre">and</span> <span class="pre">last_names</span> <span class="pre">schema',</span> <span class="pre">'type':</span> <span class="pre">'object'}</span></em><a class="headerlink" href="#randname.database.Database.schema_name_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.database.Database.draft_validator_info">
+<span class="sig-name descname"><span class="pre">draft_validator_info</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Draft7Validator(schema={'additionalProperties':</span> <span class="pre">False,</span> <span class="pre">'description':</span> <span class="pre">'Schema</span> <span class="pre">for</span> <span class="pre">info.json</span> <span class="pre">file',</span> <span class="pre">'properties':</span> <span class="pre">{'country':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'first_names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'},</span> <span class="pre">'last_names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'}},</span> <span class="pre">'required':</span> <span class="pre">['country',</span> <span class="pre">'first_names',</span> <span class="pre">'last_names'],</span> <span class="pre">...},</span> <span class="pre">format_checker=None)</span></em><a class="headerlink" href="#randname.database.Database.draft_validator_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="randname.database.Database.draft_validator_name">
+<span class="sig-name descname"><span class="pre">draft_validator_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Draft7Validator(schema={'additionalProperties':</span> <span class="pre">False,</span> <span class="pre">'description':</span> <span class="pre">'Schema</span> <span class="pre">for</span> <span class="pre">l...t</span> <span class="pre">names</span> <span class="pre">files',</span> <span class="pre">'properties':</span> <span class="pre">{'Names':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'string'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'},</span> <span class="pre">'Totals':</span> <span class="pre">{'items':</span> <span class="pre">{'type':</span> <span class="pre">'number'},</span> <span class="pre">'minItems':</span> <span class="pre">1,</span> <span class="pre">'type':</span> <span class="pre">'array'}},</span> <span class="pre">'required':</span> <span class="pre">['Names',</span> <span class="pre">'Totals'],</span> <span class="pre">...},</span> <span class="pre">format_checker=None)</span></em><a class="headerlink" href="#randname.database.Database.draft_validator_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="randname.database.Database.path">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">pathlib.Path</span></em><a class="headerlink" href="#randname.database.Database.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>path to database</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="randname.database.Database.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_database</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#randname.database.Database.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if database has valid structure and it’s files are
+correctly formatted.</p>
+<dl class="simple">
+<dt>..warning::</dt><dd><p>Validating database might take some time, depends how large is the database.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path_to_database</strong> (<em>Union</em><em>[</em><em>Path</em><em>, </em><em>str</em><em>]</em>) – path to database</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="#randname.error.DirectoryDoesNotExist" title="randname.error.DirectoryDoesNotExist"><strong>randname.error.DirectoryDoesNotExist</strong></a> – raise when directory with database does not exist.</p></li>
+<li><p><a class="reference internal" href="#randname.error.MissingInfoFile" title="randname.error.MissingInfoFile"><strong>randname.error.MissingInfoFile</strong></a> – raise when info.json is missing.</p></li>
+<li><p><a class="reference internal" href="#randname.error.GenderMismatch" title="randname.error.GenderMismatch"><strong>randname.error.GenderMismatch</strong></a> – raise when gender information in info.json does not match to what is in directories.</p></li>
+<li><p><a class="reference internal" href="#randname.error.FileNameDoesNotMatchPattern" title="randname.error.FileNameDoesNotMatchPattern"><strong>randname.error.FileNameDoesNotMatchPattern</strong></a> – raise when file with names doesn’t mach naming convention.</p></li>
+<li><p><strong>jsonschema.ValidationError</strong> – raise when json file doesn’t match pattern.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-randname.error">
+<span id="randname-error-module"></span><h2>randname.error module<a class="headerlink" href="#module-randname.error" title="Permalink to this headline">¶</a></h2>
+<p><strong>Error module</strong></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="randname.error.InvalidSexArgument">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">InvalidSexArgument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">available_sex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.error.InvalidSexArgument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>InvalidSexArgument.</p>
+<p>Raise when selected sex is not it available for chosen country.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="randname.error.InvalidCountryName">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">InvalidCountryName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">available_countries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#randname.error.InvalidCountryName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when country is not in available countries list</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="randname.error.DirectoryDoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">DirectoryDoesNotExist</span></span><a class="headerlink" href="#randname.error.DirectoryDoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when specified directory with database does not exist.</p>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="randname.error.MissingInfoFile">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">MissingInfoFile</span></span><a class="headerlink" href="#randname.error.MissingInfoFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when info.json file is missing in the country directory.</p>
+<div class="admonition-todo admonition" id="id6">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="randname.error.FileNameDoesNotMatchPattern">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">FileNameDoesNotMatchPattern</span></span><a class="headerlink" href="#randname.error.FileNameDoesNotMatchPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when file doesn’t match the pattern.</p>
+<div class="admonition-todo admonition" id="id7">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="randname.error.GenderMismatch">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">randname.error.</span></span><span class="sig-name descname"><span class="pre">GenderMismatch</span></span><a class="headerlink" href="#randname.error.GenderMismatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raise when supported genders defined in info.json does not match
+to what is in corresponding folders</p>
+<div class="admonition-todo admonition" id="id8">
+<p class="admonition-title">Todo</p>
+<p>TODO: To implement</p>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">randname package</a><ul>
+<li><a class="reference internal" href="#module-randname.randname">randname.randname module</a></li>
+<li><a class="reference internal" href="#module-randname.database">randname.database module</a></li>
+<li><a class="reference internal" href="#module-randname.error">randname.error module</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Welcome to randnames’s documentation!</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/randname.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to randnames’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rname 0.3.4 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">randname package</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Adam Walkiewicz.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

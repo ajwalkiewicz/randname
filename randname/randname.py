@@ -1,6 +1,17 @@
-"""Main module for randname
+"""
+**Main module for randname**
 
-Simple usage:
+.. todo::
+    TODO P0: Write unit tests for existing code
+.. todo::
+    TODO P1: Refactor code and review variable names
+.. todo::
+    TODO P2: Add database validation function
+.. todo::
+    TODO P3: Move from os.path to Path
+
+Example usage of module:
+
 >>> import randname
 >>> randname.full_name()
 'John Doe'
@@ -8,18 +19,21 @@ Simple usage:
 import json
 import logging
 import os
-from pathlib import Path
 import random
 import warnings
 from bisect import bisect_left
+from pathlib import Path
 
+import randname.database
 import randname.error
 
 _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 _COUNTRIES_BASE = os.listdir(os.path.join(_THIS_FOLDER, "data"))
 _PROPER_SEX_OPTIONS = ("M", "F", "N", None)
 
-DATABASE = os.path.join(_THIS_FOLDER, "data")
+PATH_TO_DATABASE = Path() / _THIS_FOLDER / "data"
+DATABASE: str = randname.database.Database(PATH_TO_DATABASE)._path
+
 WARNINGS = True
 
 randname.set_logging_level("error")
@@ -28,6 +42,22 @@ logging.debug(f"This folder: {_THIS_FOLDER}")
 logging.debug(f"Countries base: {_COUNTRIES_BASE}")
 logging.debug(f"Database: {DATABASE}")
 logging.debug(f"Warnings: " + ("off", "on")[WARNINGS])
+
+
+class Randname:
+    database = randname.database.Database(DATABASE)
+
+    @classmethod
+    def full_name(cls, *args, **kwargs):
+        return full_name(database=cls.database.path, *args, **kwargs)
+
+    @classmethod
+    def first_name(cls, *args, **kwargs):
+        return first_name(database=cls.database.path, *args, **kwargs)
+
+    @classmethod
+    def last_name(cls, *args, **kwargs):
+        return last_name(database=cls.database.path, *args, **kwargs)
 
 
 def full_name(
@@ -57,9 +87,10 @@ def full_name(
     :return: full name
     :rtype: str
 
-     >>> full_name()
+    >>> full_name()
     'John Doe'
     """
+    country = _gen_country(country, database)
     first_name_available_sex = _available_sex(database, country, "first_names")
     last_name_available_sex = _available_sex(database, country, "last_names")
 
@@ -258,6 +289,9 @@ def _gen_sex(sex: str, database: str, country: str, name_type: str) -> str:
 
 
 def _available_sex(path_to_dataset: str, country: str, name_type: str):
+    logging.debug(path_to_dataset)
+    logging.debug(country)
+    logging.debug(name_type)
     info = os.path.join(path_to_dataset, country, "info.json")
 
     with open(info, "r") as info:
@@ -305,7 +339,7 @@ def show_data(path_to_database: str = DATABASE) -> dict:
     :return: information about database
     :rtype: dict
 
-    >>> data_lookup()
+    >>> show_data()
     {
         'ES': {'first_names': ['M'], 'last_names': ['N']},
         'PL': {'first_names': ['M', 'F'], 'last_names': ['M', 'F']},
@@ -331,8 +365,15 @@ def show_data(path_to_database: str = DATABASE) -> dict:
 
 
 def validate_database(path_to_database: Path) -> bool:
-    # TODO: to implement
-    ...
+    """Validate database
+
+    :param path_to_database: path to database
+    :type path_to_database: Path
+    :return: True if database is valid, else False
+    :rtype: bool
+    """
+
+    randname.database.Database(path_to_database)
 
 
 if __name__ == "__main__":
@@ -341,10 +382,3 @@ if __name__ == "__main__":
     first_name()
     last_name()
     full_name()
-
-"""
-TODO: P0: Write unit tests for existing code
-TODO: P1: Refactor code and review variable names
-TODO: P2: Add database validation function
-TODO: P3: Move from os.path to Path
-"""
