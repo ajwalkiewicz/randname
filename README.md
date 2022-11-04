@@ -1,10 +1,16 @@
+[![PyPI version](https://badge.fury.io/py/rname.svg)](https://badge.fury.io/py/rname)
+[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Language: Python](https://img.shields.io/badge/Language-Python-blue.svg)](https://shields.io/)
+[![Author: Walu](https://img.shields.io/badge/Aurhor-Walu-gray.svg)](https://shields.io/)
+
 # randname
+
 Python module to generate random name.
 
 ## Summary
 
-Randname is a python module for generating random name - first and last. It uses official data from appropiate governmant/scientific reserch centers. 
+Randname is a python module for generating random name - first and last. It uses official data from appropiate governmant/scientific reserch centers.
 
 Names are drawn with the consideration of their frequency. Therefor moste common name wil be drawn much more often (this feature can be disabled).
 
@@ -77,14 +83,17 @@ Default database included in pypi package is very small. To not make the package
 Currently supprted countries:
 
 US:
+
 - 2010, last names (neutral)
-- 2018, first names (male, female) 
+- 2018, first names (male, female)
 
 PL:
+
 - 2020, last names (male, female)
 - 2021, first names (male, female)
 
 ES:
+
 - 2020, last names (male)
 - 2020, first names (male)
 
@@ -93,16 +102,18 @@ ES:
 Full database is bigger and doesn't have the limit of records. If you wan to use it, dowload it from project [github page](https://github.com/ajwalkiewicz/randname/).
 
 To use other databases specify directory by setting `database_path` variable
+
 ```Python
 >>> import randnames
 >>> randnames.database_path = "path_to_your_database"
 ```
 
 ---
+
 More details about database can be found [here](DATABASE.md)
 
-
 ## Contribution
+
 If you want to contribute to randname projcet read [contribution](CONTRIBUTION.md) for more information.
 
 I am looking especially for help with database creation. More information on how to help/create appropiate data files with names can be found in [database guide](DATABASE.md)
@@ -122,7 +133,7 @@ I am looking especially for help with database creation. More information on how
 1. [ ] Instruction for database creation
 1. [x] Add equal chances for every name
 1. [ ] Support for other countries names
-1. [ ] Add 9 more countries 
+1. [ ] Add 9 more countries
 
 ## License
 
