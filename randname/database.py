@@ -117,8 +117,8 @@ class Database:
             try:
                 self._validate_json_schema(self.schema_info_json, path_to_info_file)
             except jsonschema.ValidationError:
-                logging.error(f"Invalid info file: {f}")
-                invalid_json_files.append(f)
+                logging.error(f"Invalid info file: {info_file}")
+                invalid_json_files.append(info_file)
 
             # check if content fo info.json match the content of first_names and last_names directories
             sex_in_first_names_dir = set(
@@ -164,12 +164,13 @@ class Database:
                 except jsonschema.ValidationError:
                     logging.error(f"Invalid content pattern: {f}")
                     invalid_json_files.append(f)
+        
+        if invalid_json_files:
+            raise jsonschema.ValidationError(invalid_json_files)
 
         if invalid_name_pattern:
             raise randname.error.FileNameDoesNotMatchPattern(invalid_name_pattern)
 
-        if invalid_json_files:
-            raise jsonschema.ValidationError(invalid_json_files)
 
     def _validate_json_schema(
         self, schema, path_to_json: Union[Path, str] = None
