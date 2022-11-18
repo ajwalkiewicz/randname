@@ -10,7 +10,7 @@ import randname.error
 
 from . import set_logging_level
 
-set_logging_level("debug")
+set_logging_level("error")
 
 
 class Database:
