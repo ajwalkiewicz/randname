@@ -5,6 +5,7 @@ import pytest
 import randname
 import randname.database
 import randname.error
+import jsonschema
 
 
 @pytest.fixture
@@ -12,6 +13,15 @@ def database_path():
     _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
     return Path() / _THIS_FOLDER / "test_data"
 
+@pytest.fixture
+def invalid_database_path():
+    _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    return Path() / _THIS_FOLDER / "invalid_test_data"
+
+@pytest.fixture
+def invalid_info_schema():
+    _THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+    return Path() / _THIS_FOLDER / "invalid_info_schema"
 
 @pytest.fixture
 def database(database_path):
@@ -38,5 +48,13 @@ def test_invalid_database_directory():
         database.validate()
 
 
-def test_validate():
-    ...
+def test_validate_missing_info_file(invalid_database_path):
+    database = randname.database.Database(invalid_database_path)
+    with pytest.raises(randname.error.MissingInfoFile):
+        database.validate()
+
+
+def test_validate_invalid_test_data(invalid_info_schema):
+    database = randname.database.Database(invalid_info_schema)
+    with pytest.raises(jsonschema.ValidationError):
+        database.validate()
