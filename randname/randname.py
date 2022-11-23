@@ -294,7 +294,7 @@ def _available_sex(path_to_dataset: str, country: str, name_type: str):
     logging.debug(name_type)
     info = os.path.join(path_to_dataset, country, "info.json")
 
-    with open(info, "r") as info:
+    with open(info, "r", encoding="utf-8") as info:
         available_sex = json.load(info)[name_type]
 
     logging.debug(f"Available sex: {available_sex}")
@@ -302,7 +302,7 @@ def _available_sex(path_to_dataset: str, country: str, name_type: str):
 
 
 def _gen_name_from_file(path_to_dataset: str, cum_weights: bool = True) -> str:
-    with open(path_to_dataset) as json_file:
+    with open(path_to_dataset, "r", encoding="utf-8") as json_file:
         logging.debug(f"Opening: {json_file.name}")
         data_set = json.load(json_file)
         name_population = data_set["Names"]
@@ -351,7 +351,7 @@ def show_data(path_to_database: str = DATABASE) -> dict:
     for country in available_countries(path_to_database):
         path_to_info_json = os.path.join(path_to_database, country, "info.json")
 
-        with open(path_to_info_json) as info_file:
+        with open(path_to_info_json, "r", encoding="utf-8") as info_file:
             info_dict = json.load(info_file)
             result.setdefault(
                 info_dict["country"],
