@@ -109,7 +109,7 @@ class Database:
                 raise randname.error.DirectoryDoesNotExist(last_names_dir)
 
             # check info.json
-            with open(path_to_info_file, "r") as info_file:
+            with open(path_to_info_file, "r", encoding="utf-8") as info_file:
                 json_file = json.load(info_file)
                 first_names_sex = set(json_file["first_names"])
                 last_names_sex = set(json_file["last_names"])
@@ -180,7 +180,7 @@ class Database:
         else:
             path = self._path
 
-        with open(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             json_content = json.load(f)
 
         if schema is self.schema_name_json:
