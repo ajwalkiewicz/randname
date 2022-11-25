@@ -8,7 +8,7 @@ with open(f"{THIS_FOLDER}/README.md", "r") as fh:
 
 setup(
     name="rname",
-    version="0.3.6",
+    version="0.3.7",
     description="Get random first/last name",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -21,7 +21,6 @@ setup(
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
