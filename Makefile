@@ -48,11 +48,11 @@ clean_cache:
 
 format:
 	@echo "Formatting project files with ruff..."
-	uv run ruff format
+	uv run ruff format src/ tests/
 
 check:
 	@echo "Checking project files with ruff..."
-	uv run ruff check
+	uv run ruff check src/ tests/
 
 type:
 	@echo "checking typing with mypy..."
