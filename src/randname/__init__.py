@@ -17,7 +17,7 @@ from randname.core import (
     show_data,
 )
 
-__title__ = "randname"
+__title__ = "rname"
 __version__ = version(__title__)
 __author__ = "Adam Walkiewicz"
 __license__ = "MIT"
