@@ -14,7 +14,7 @@ check-uv:
 		curl -LsSf https://astral.sh/uv/install.sh | sh; \
 	fi
 
-build: test clean_build
+build: check test clean_build
 	@echo "Building package..."
 	uv build
 

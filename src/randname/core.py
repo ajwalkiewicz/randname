@@ -82,7 +82,8 @@ class Randname:
             year: Year of birth, defaults to None
             sex: Sex's name, defaults to None
             country: Country of origin, defaults to None
-            weights: Use population distribution if True, else treat all names with same probability, defaults to True
+            weights: Use population distribution if True, else treat all names
+                with same probability, defaults to True
 
         Returns:
             Full name
@@ -92,7 +93,7 @@ class Randname:
             InvalidCountryName: If country is not in valid countries
 
         Examples:
-            >>> full_name()
+            >>> randfull()
             'John Doe'
         """
         country = self._gen_country(country)
@@ -129,7 +130,8 @@ class Randname:
             year: Year of birth, defaults to None
             sex: Sex's name, defaults to None
             country: Country of origin, defaults to None
-            weights: Use population distribution if True, else treat all names with same probability, defaults to True
+            weights: Use population distribution if True, else treat all names
+                with same probability, defaults to True
 
         Returns:
             Last name
@@ -139,7 +141,7 @@ class Randname:
             InvalidCountryName: If country is not in valid countries
 
         Examples:
-            >>> last_name()
+            >>> randlast()
             'Doe'
         """
         last_name = self._gen_name("last", year, sex, country, weights)
@@ -158,7 +160,8 @@ class Randname:
             year: Year of birth, defaults to None
             sex: Sex's name, defaults to None
             country: Country of origin, defaults to None
-            weights: Use population distribution if True, else treat all names with same probability, defaults to True
+            weights: Use population distribution if True, else treat all names
+                with same probability, defaults to True
 
         Returns:
             First name
@@ -168,7 +171,7 @@ class Randname:
             InvalidCountryName: If country is not in valid countries
 
         Examples:
-            >>> first_name()
+            >>> randfirst()
             'John'
         """
         return self._gen_name("first", year, sex, country, weights)
@@ -194,7 +197,8 @@ class Randname:
             Name from database
 
         Raises:
-            InvalidSexArgument: Raise when provided sex is not available for given database
+            InvalidSexArgument: Raise when provided sex is not available for
+                given database
 
         Examples:
             >>> _gen_name("first")
