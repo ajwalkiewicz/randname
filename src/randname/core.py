@@ -279,8 +279,8 @@ class Randname:
     def _available_sex(self, country: str, name_type: str):
         info = self._database.path / country / "info.json"
 
-        with info.open("r", encoding="utf-8") as info:
-            available_sex = json.load(info)[name_type]
+        with info.open("r", encoding="utf-8") as fd:
+            available_sex = json.load(fd)[name_type]
 
         logging.debug("Available sex: %s", available_sex)
 
@@ -325,7 +325,7 @@ class Randname:
 
     def show_data(
         self, path: Path | None
-    ) -> dict[str, dict[LongConvention, SexConvention]]:
+    ) -> dict[str, dict[LongConvention, list[SexConvention]]]:
         """Return dictionary with information about database.
 
         Args:
@@ -342,7 +342,7 @@ class Randname:
                 'US': {'first_names': ['M', 'F'], 'last_names': ['N']}
             }
         """
-        result = {}
+        result: dict[str, dict[LongConvention, list[SexConvention]]] = {}
 
         if path is None:
             path = self.database.path

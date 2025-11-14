@@ -30,4 +30,4 @@ jobs:
 
     - name: Check linting with ruff
       run: |
-        make check
+        make lint

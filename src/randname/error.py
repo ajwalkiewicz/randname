@@ -25,7 +25,7 @@ class InvalidSexArgumentError(RandnameError):
         message: Explanation of the error
     """
 
-    def __init__(self, sex: str, available_sex: tuple[Any, ...]):
+    def __init__(self, sex: str | None, available_sex: tuple[Any, ...]):
         self.sex = sex
         self.available_sex = available_sex
         self.message = f"{self.sex} not in {self.available_sex}"

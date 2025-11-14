@@ -93,8 +93,8 @@ class Database:
             randname.error.FileNameDoesNotMatchPattern: Raise when file with names doesn't match naming convention.
             jsonschema.ValidationError: Raise when json file doesn't match pattern.
         """
-        invalid_name_pattern = []
-        invalid_json_files = []
+        invalid_name_pattern: list[Path] = []
+        invalid_json_files: list[Path] = []
 
         if not path.is_dir():
             raise randname.error.DirectoryDoesNotExistError(path)
@@ -114,7 +114,7 @@ class Database:
                 raise randname.error.DirectoryDoesNotExistError(last_names_dir)
 
             # check info.json
-            with open(path_to_info_file, "r", encoding="utf-8") as info_file:
+            with path_to_info_file.open("r", encoding="utf-8") as info_file:
                 json_file = json.load(info_file)
                 first_names_sex = set(json_file["first_names"])
                 last_names_sex = set(json_file["last_names"])
@@ -124,8 +124,8 @@ class Database:
                     Database.schema_info_json, path_to_info_file
                 )
             except jsonschema.ValidationError:
-                logger.error(f"Invalid info file: {info_file}")
-                invalid_json_files.append(info_file)
+                logger.error(f"Invalid info file: {path_to_info_file}")
+                invalid_json_files.append(path_to_info_file)
 
             # check if content fo info.json match the content of first_names and last_names directories
             sex_in_first_names_dir = set(

@@ -1,6 +1,6 @@
 .PHONY: setup check-uv build test test_all \
 	clean clean_venv clean_build clean_cache \
-	format check type docs docs_upload docs_build
+	format check lint type docs docs_upload docs_build
 
 setup: check-uv uv.lock
 	@echo "Setting up project..."
@@ -50,8 +50,10 @@ format:
 	@echo "Formatting project files with ruff..."
 	uv run ruff format src/ tests/
 
-check:
-	@echo "Checking project files with ruff..."
+check: lint type
+
+lint:
+	@echo "Linting project files with ruff..."
 	uv run ruff check src/ tests/
 
 type:
