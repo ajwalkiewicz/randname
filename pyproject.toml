@@ -18,7 +18,6 @@ classifiers = [
   #   4 - Beta
   #   5 - Production/Stable
   "Development Status :: 4 - Beta",
-  "Intended Audience :: Everyone",
   "License :: OSI Approved :: MIT",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3.12",
@@ -42,6 +41,7 @@ dev = [
     "mkdocstrings[python]>=0.30.1",
     "mypy>=1.18.2",
     "pytest>=9.0.0",
+    "pytest-cov>=7.0.0",
     "ruff>=0.14.4",
     "types-jsonschema>=4.25.1.20251009",
 ]

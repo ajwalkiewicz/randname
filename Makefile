@@ -1,6 +1,7 @@
 .PHONY: setup check-uv build test test_all \
 	clean clean_venv clean_build clean_cache \
-	format check lint type docs docs_upload docs_build
+	format check lint type docs docs_upload docs_build \
+	coverage
 
 setup: check-uv uv.lock
 	@echo "Setting up project..."
@@ -63,8 +64,12 @@ type:
 docs: docs
 	uv run mkdocs serve
 
-docs_upload: docs
+docs_upload:
 	uv run mkdocs gh-deploy
 
 docs_build:
 	uv run mkdocs build
+
+coverage: 
+	@echo "Generating test coverage report..."
+	uv run pytest --cov=randname --cov-report=term-missing --cov-report=html

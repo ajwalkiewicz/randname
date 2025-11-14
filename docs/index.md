@@ -1,5 +1,5 @@
 [![PyPI version](https://badge.fury.io/py/rname.svg)](https://badge.fury.io/py/rname)
-[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](license.md)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Language: Python](https://img.shields.io/badge/Language-Python-blue.svg)](https://shields.io/)
 [![Author: Walu](https://img.shields.io/badge/Aurhor-Walu-gray.svg)](https://shields.io/)
@@ -93,7 +93,7 @@ To use other databases specify directory by setting `database_path` variable
 
 ---
 
-More details about database can be found [here](DATABASE.md)
+More details about database can be found [here](database.md)
 
 ## Contribution
 
