@@ -135,7 +135,10 @@ dmypy.json
 
 # vim
 .swp
+*.vim
 
 # Others
 miscelenious
 credentials
+*.temp
+observations
