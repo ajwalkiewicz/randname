@@ -1,5 +1,5 @@
 [project]
-name = "randname"
+name = "rname"
 version = "1.0.0-beta.1"
 description = "Get random first/last name"
 readme = "README.md"
@@ -26,13 +26,18 @@ classifiers = [
 ]
 
 [project.urls]
-Documentation = "https://ajwalkiewicz.github.io/cochar/_build/html/index.html"
-Repository = "https://github.com/ajwalkiewicz/cochar"
-Issues = "https://github.com/ajwalkiewicz/cochar/issues"
+Documentation = "https://ajwalkiewicz.github.io/randname"
+Repository = "https://github.com/ajwalkiewicz/randname"
+Issues = "https://github.com/ajwalkiewicz/randname/issues"
 
 [build-system]
 requires = ["uv_build>=0.9.7,<0.10.0"]
 build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "randname"
+module-root = "src"
+
 
 [dependency-groups]
 dev = [
