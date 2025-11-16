@@ -1,19 +1,19 @@
 # Setting Up the Development Environment
 
-To contribute to the cochar project, it's important to set up a development 
-environment that matches the project's requirements. This ensures consistency 
+To contribute to the cochar project, it's important to set up a development
+environment that matches the project's requirements. This ensures consistency
 and reduces the time spent debugging non-existent bugs.
 
 ## Prerequisites
 
 Before setting up the environment, ensure you have the following installed:
 
-- **Python**: The project is built using Python. Make sure you have Python 
+- **Python**: The project is built using Python. Make sure you have Python
   installed on your machine. The project has to be compatible with **python3.12**
-- **Make**: We use Make to simplify various tasks such as setup, testing, 
+- **Make**: We use Make to simplify various tasks such as setup, testing,
   and building the project.
 - **Curl**: Required for downloading scripts.
-- **Linux** machine: It is not a hard requirement, but all instructions here 
+- **Linux** machine: It is not a hard requirement, but all instructions here
   are based on **Ubuntu 22.04**.
 
 ## Steps to Set Up the Environment
@@ -84,13 +84,13 @@ Before setting up the environment, ensure you have the following installed:
   make docs_upload
   ```
 
-By following these steps, you will have a development environment that is 
-consistent with the project's requirements. For any issues or further details, 
+By following these steps, you will have a development environment that is
+consistent with the project's requirements. For any issues or further details,
 refer to the [Contribution Guidelines](contribution.md).
 
 ## References
 
-* Python: https://www.python.org/ 
+* Python: https://www.python.org/
 * Project management tool: [UV](https://docs.astral.sh/uv/)
 * Formatter: [Ruff](https://docs.astral.sh/ruff/)
 * Testing: [Pytest](https://docs.pytest.org/en/stable/index.html)

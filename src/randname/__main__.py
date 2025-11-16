@@ -1,14 +1,21 @@
 import argparse
 from collections.abc import Sequence
 
+import randname
 from randname.core import Randname, available_countries, randfirst, randfull, randlast
 
+# Remove `None` from valid choices, because there it is not easy to pass it
+# in CLI, and it is not necessary, as the default is None
 sex_choices = [choice for choice in Randname.VALID_SEX_OPTIONS if choice]
 
 
-def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:
+def parse_args(
+    args: Sequence[str] | None = None,
+) -> tuple[argparse.Namespace, argparse.ArgumentParser]:
     parser = argparse.ArgumentParser(
-        description="Generate a random full name using randname library."
+        prog="randname",
+        description="Generate a random name using randname library.",
+        add_help=False,
     )
 
     # Mutually exclusive arguments for first name and last name
@@ -44,11 +51,25 @@ def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:
         help="Specify the year for name generation (default: None).",
     )
 
-    return parser.parse_args(args)
+    # Utility arguments
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {randname.__version__}",
+        help="Show the version of the randname library and exit.",
+    )
+    parser.add_argument(
+        "--help", "-h", action="help", help="Show this help message and exit."
+    )
+
+    return parser.parse_args(args), parser
 
 
 def main():
-    args = parse_args()
+    args, parser = parse_args()
+
+    if args.help:
+        parser.print_help()
 
     if args.first:
         name = randfirst(country=args.country, sex=args.sex, year=args.year)

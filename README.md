@@ -39,4 +39,4 @@ Detailed documentation of module can by found here:
 
 ## License
 
-Randname is licensed under the terms of the [MIT license](license.md)
+Randname is licensed under the terms of the [MIT license](LICENSE)
