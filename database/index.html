@@ -707,14 +707,14 @@
 
 <h1 id="database-guide">Database Guide</h1>
 <h2 id="legal-warning">Legal warning</h2>
-<p>Please kep in mind that randname is an open source project and we relay only 
+<p>Please kep in mind that randname is an open source project and we relay only
 on legally possessed data.</p>
 <h2 id="how-database-looks">How database looks</h2>
 <p>All data files are stored in <code>data</code> directory.</p>
-<p><code>data</code> directory contains directories for every currently supported country. 
-Country directories are named accordingly to <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Aplha-2 code</a>. 
+<p><code>data</code> directory contains directories for every currently supported country.
+Country directories are named accordingly to <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Aplha-2 code</a>.
 It means that directory name is exactly 2 capital letters.</p>
-<p>Inside country directory there are 2 separate directories and 1 info.json file. 
+<p>Inside country directory there are 2 separate directories and 1 info.json file.
 One for first names and one for las names.</p>
 <ul>
 <li><code>first_names</code></li>
@@ -733,13 +733,13 @@ Above <code>info.json</code> file contain following information:
 - 2 first names files, one with male names and the other one with female names
 - 1 last name file with neutral last names</p>
 <p>Inside names directories, are actual data files.</p>
-<p>Data files are in <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> format, 
+<p>Data files are in <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> format,
 but without <code>.json</code> extension.</p>
-<p>Data files has to starts from <code>year</code>, <code>underscore</code>, and <code>gender capital letter</code> 
+<p>Data files has to starts from <code>year</code>, <code>underscore</code>, and <code>gender capital letter</code>
 - <code>M</code>, <code>F</code> or <code>N</code>. Example: <code>1990_M</code> for male names in 1990.</p>
 <h3 id="what-letter-to-use">What letter to use?</h3>
-<p>Not all languages have same names grammar. For example english language have 
-same form of last name regardless the gender. In the other hand some languages 
+<p>Not all languages have same names grammar. For example english language have
+same form of last name regardless the gender. In the other hand some languages
 like polish have separate last names forms for male and female.</p>
 <p>Use:
 * <code>M</code> - for male
@@ -777,16 +777,16 @@ like polish have separate last names forms for male and female.</p>
 </span></code></pre></div>
 <h2 id="source-files">Source files</h2>
 <p>Most of the databases with names are in <code>.csv</code> or <code>.xlsx</code> formats.</p>
-<p>When contributing pleas send also a source file from which you are creating 
+<p>When contributing pleas send also a source file from which you are creating
 JSON data.</p>
 <h2 id="tools">Tools</h2>
-<p>In <code>/tools</code> you can find simple python scrip that can help you to create JSON 
+<p>In <code>/tools</code> you can find simple python scrip that can help you to create JSON
 files from <code>.xlsx</code> or <code>.csv</code> files.</p>
-<p>In order to make it work out of the box, a source file has to have the following 
+<p>In order to make it work out of the box, a source file has to have the following
 structure:
 * contains 2 columns
 * first column has to be with names
-* second column has to be with integer numbers that indicates the number name 
+* second column has to be with integer numbers that indicates the number name
 occurrences.</p>
 <h3 id="example-source-file">Example source file</h3>
 <table>
@@ -847,7 +847,7 @@ occurrences.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python3 convert_to_json.py -t csv -f PL/first_names/Imiona_nadane_wPolsce_w_latach_2000-2019.csv -o 2000_M
 </span></code></pre></div>
 <h2 id="sources">Sources</h2>
-<p>US </p>
+<p>US</p>
 <p>Last names</p>
 <p>https://www.census.gov/topics/population/genealogy/data/1990_census.html https://www.census.gov/topics/population/genealogy/data/2000_surnames.html https://www.census.gov/topics/population/genealogy/data/2010_surnames.html</p>
 <p>First names</p>

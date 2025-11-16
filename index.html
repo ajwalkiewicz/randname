@@ -273,15 +273,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#to-do" class="md-nav__link">
-    <span class="md-ellipsis">
-      To do
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#license" class="md-nav__link">
     <span class="md-ellipsis">
       License
@@ -620,15 +611,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#to-do" class="md-nav__link">
-    <span class="md-ellipsis">
-      To do
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#license" class="md-nav__link">
     <span class="md-ellipsis">
       License
@@ -661,43 +643,55 @@
 <h1 id="randname">randname</h1>
 <p>Python module to generate random name.</p>
 <h2 id="summary">Summary</h2>
-<p>Randname is a python module for generating random name - first and last. 
+<p>Randname is a python module for generating random name - first and last.
 It uses official data from appropriate governmental/scientific research centers.</p>
-<p>Names are drawn with the consideration of their frequency. Therefor most common 
+<p>Names are drawn with the consideration of their frequency. Therefor most common
 name wil be drawn much more often (this feature can be disabled).</p>
 <p>Currently supported countries:
 US, PL, ES.</p>
-<p>Default database is small, and constrained to 10000 records for each first and 
+<p>Default database is small, and constrained to 10000 records for each first and
 last names for every country. Default data size: 60 000 records</p>
-<p>With the full database downloaded from project 
-<a href="https://github.com/ajwalkiewicz/randname/">github page</a>, 
+<p>With the full database downloaded from project
+<a href="https://github.com/ajwalkiewicz/randname/">github page</a>,
 the amount of names is increased to around 700 000 records.</p>
 <h2 id="installation">Installation</h2>
 <p>Randname is available in python repository, and can be downloaded with pip.</p>
 <div class="language-Bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>rname
 </span></code></pre></div>
+<p>Yes, use <code>rname</code> to install the package.</p>
 <h2 id="usage">Usage</h2>
-<div class="language-Python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">randname</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Get first name</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">randname</span><span class="o">.</span><span class="n">randfirst</span><span class="p">()</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s1">&#39;John&#39;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Get last name</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">randname</span><span class="o">.</span><span class="n">randlast</span><span class="p">()</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="s1">&#39;Doe&#39;</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># Get full name</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="o">&gt;&gt;&gt;</span><span class="n">randname</span><span class="o">.</span><span class="n">randfull</span><span class="p">()</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="s1">&#39;John Doe&#39;</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># Setting directory to external database</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">randname</span><span class="o">.</span><span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;/path/to/external/database/&quot;</span>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Because <code>randname</code> package on PyPi was already taken, it was named <code>rname</code>
+That's why to install in you need to refer to <code>rname</code>:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>rname
+</span></code></pre></div>
+But package installs itself as <code>randname</code>. And you should import is by
+referring to <code>randname</code>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">randname</span>
+</span></code></pre></div></p>
+</div>
+<div class="language-Python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">randname</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Get first name</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">randname</span><span class="o">.</span><span class="n">randfirst</span><span class="p">()</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s1">&#39;John&#39;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Get last name</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">randname</span><span class="o">.</span><span class="n">randlast</span><span class="p">()</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="s1">&#39;Doe&#39;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># Get full name</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="o">&gt;&gt;&gt;</span><span class="n">randname</span><span class="o">.</span><span class="n">randfull</span><span class="p">()</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="s1">&#39;John Doe&#39;</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1"># Setting directory to external database</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">randname</span><span class="o">.</span><span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;/path/to/external/database/&quot;</span>
 </span></code></pre></div>
 <h2 id="database">Database</h2>
-<p>Default database included in pypi package is very small. To not make the 
-package unnecessary too large, every country have one set of data for last 
-and first names (with distinction for the male, female, neutral name), 
+<p>Default database included in pypi package is very small. To not make the
+package unnecessary too large, every country have one set of data for last
+and first names (with distinction for the male, female, neutral name),
 for the most recent year. Each file contains up to 10000 records.</p>
 <p>Currently supported countries:</p>
 <p>US:</p>
@@ -716,34 +710,23 @@ for the most recent year. Each file contains up to 10000 records.</p>
 <li>2020, first names (male)</li>
 </ul>
 <h3 id="biger-database">Biger database</h3>
-<p>Full database is bigger and doesn't have the limit of records. If you wan to 
+<p>Full database is bigger and doesn't have the limit of records. If you wan to
 use it, download it from project <a href="https://github.com/ajwalkiewicz/randname/">github page</a>.</p>
 <p>To use other databases specify directory by setting <code>database_path</code> variable</p>
-<div class="language-Python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">randname</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">randname</span><span class="o">.</span><span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;path_to_your_database&quot;</span>
+<div class="language-Python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span><span class="w"> </span><span class="nn">randname</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">randname</span><span class="o">.</span><span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;path_to_your_database&quot;</span>
 </span></code></pre></div>
 <hr />
 <p>More details about database can be found <a href="database/">here</a></p>
 <h2 id="contribution">Contribution</h2>
-<p>If you want to contribute to randname project read 
+<p>If you want to contribute to randname project read
 <a href="contribution/">contribution</a> for more information.</p>
-<p>I am looking especially for help with database creation. More information on 
-how to help/create appropriate data files with names can be found in 
+<p>I am looking especially for help with database creation. More information on
+how to help/create appropriate data files with names can be found in
 <a href="database/">database guide</a></p>
 <h2 id="authors-contributors">Authors &amp; Contributors</h2>
 <p><strong>Author</strong>: Adam Walkiewicz</p>
 <p><strong>Contributors</strong>: Be first!</p>
-<h2 id="to-do">To do</h2>
-<ol>
-<li>[x] Summary</li>
-<li>[ ] Tools</li>
-<li>[ ] Contribution guideline</li>
-<li>[ ] Unit tests</li>
-<li>[ ] Instruction for database creation</li>
-<li>[x] Add equal chances for every name</li>
-<li>[ ] Support for other countries names</li>
-<li>[ ] Add 9 more countries</li>
-</ol>
 <h2 id="license">License</h2>
 <p>Randname is licensed under the terms of the <a href="license/">MIT license</a></p>
 
