@@ -1,5 +1,8 @@
 """Configuration for logging in the randname library.
 
+This module act as singleton. Once imported it will not be re-imported again.
+Thus, `logger` is always the same object.
+
 Attributes:
     DEFAULT_LOGGING_LEVEL: Default logging level for the application.
     LOGGING_LEVEL_MAP: Mapping of string logging levels to logging module constants.
@@ -46,4 +49,4 @@ def set_logger(level_name: str) -> logging.Logger:
     return logger
 
 
-logger = set_logger("debug")
+logger = set_logger("error")

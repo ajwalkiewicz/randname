@@ -1,5 +1,0 @@
-include LICENSE
-recursive-include randname *.json
-recursive-include randname *.py
-recursive-include randname/data *
-recursive-exclude randname *.ipynb

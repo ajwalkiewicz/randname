@@ -12,7 +12,7 @@ Examples:
     Example usage of module:
 
     >>> import randname
-    >>> randname.full_name()
+    >>> randname.randfull()
     'John Doe'
 
 Attributes:
