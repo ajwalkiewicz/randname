@@ -10,20 +10,20 @@ Python module to generate random name.
 
 ## Summary
 
-Randname is a python module for generating random name - first and last. 
+Randname is a python module for generating random name - first and last.
 It uses official data from appropriate governmental/scientific research centers.
 
-Names are drawn with the consideration of their frequency. Therefor most common 
+Names are drawn with the consideration of their frequency. Therefor most common
 name wil be drawn much more often (this feature can be disabled).
 
 Currently supported countries:
 US, PL, ES.
 
-Default database is small, and constrained to 10000 records for each first and 
+Default database is small, and constrained to 10000 records for each first and
 last names for every country. Default data size: 60 000 records
 
-With the full database downloaded from project 
-[github page](https://github.com/ajwalkiewicz/randname/), 
+With the full database downloaded from project
+[github page](https://github.com/ajwalkiewicz/randname/),
 the amount of names is increased to around 700 000 records.
 
 ## Installation
@@ -34,7 +34,21 @@ Randname is available in python repository, and can be downloaded with pip.
 pip3 install rname
 ```
 
+Yes, use `rname` to install the package.
+
 ## Usage
+
+!!! warning
+    Because `randname` package on PyPi was already taken, it was named `rname`
+    That's why to install in you need to refer to `rname`:
+    ```bash
+    pip3 install rname
+    ```
+    But package installs itself as `randname`. And you should import is by
+    referring to `randname`:
+    ```python
+    import randname
+    ```
 
 ```Python
 >>> import randname
@@ -57,9 +71,9 @@ pip3 install rname
 
 ## Database
 
-Default database included in pypi package is very small. To not make the 
-package unnecessary too large, every country have one set of data for last 
-and first names (with distinction for the male, female, neutral name), 
+Default database included in pypi package is very small. To not make the
+package unnecessary too large, every country have one set of data for last
+and first names (with distinction for the male, female, neutral name),
 for the most recent year. Each file contains up to 10000 records.
 
 Currently supported countries:
@@ -81,7 +95,7 @@ ES:
 
 ### Biger database
 
-Full database is bigger and doesn't have the limit of records. If you wan to 
+Full database is bigger and doesn't have the limit of records. If you wan to
 use it, download it from project [github page](https://github.com/ajwalkiewicz/randname/).
 
 To use other databases specify directory by setting `database_path` variable
@@ -97,11 +111,11 @@ More details about database can be found [here](database.md)
 
 ## Contribution
 
-If you want to contribute to randname project read 
+If you want to contribute to randname project read
 [contribution](contribution.md) for more information.
 
-I am looking especially for help with database creation. More information on 
-how to help/create appropriate data files with names can be found in 
+I am looking especially for help with database creation. More information on
+how to help/create appropriate data files with names can be found in
 [database guide](database.md)
 
 ## Authors & Contributors
@@ -109,17 +123,6 @@ how to help/create appropriate data files with names can be found in
 **Author**: Adam Walkiewicz
 
 **Contributors**: Be first!
-
-## To do
-
-1. [x] Summary
-1. [ ] Tools
-1. [ ] Contribution guideline
-1. [ ] Unit tests
-1. [ ] Instruction for database creation
-1. [x] Add equal chances for every name
-1. [ ] Support for other countries names
-1. [ ] Add 9 more countries
 
 ## License
 

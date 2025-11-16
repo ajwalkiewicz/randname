@@ -2,20 +2,20 @@
 
 ## Legal warning
 
-Please kep in mind that randname is an open source project and we relay only 
+Please kep in mind that randname is an open source project and we relay only
 on legally possessed data.
 
 ## How database looks
 
 All data files are stored in `data` directory.
 
-`data` directory contains directories for every currently supported country. 
-Country directories are named accordingly to [Aplha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements). 
+`data` directory contains directories for every currently supported country.
+Country directories are named accordingly to [Aplha-2 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
 It means that directory name is exactly 2 capital letters.
 
-Inside country directory there are 2 separate directories and 1 info.json file. 
+Inside country directory there are 2 separate directories and 1 info.json file.
 One for first names and one for las names.
- 
+
 * `first_names`
 * `last_names`
 
@@ -35,16 +35,16 @@ Above `info.json` file contain following information:
 
 Inside names directories, are actual data files.
 
-Data files are in [JSON](https://en.wikipedia.org/wiki/JSON) format, 
+Data files are in [JSON](https://en.wikipedia.org/wiki/JSON) format,
 but without `.json` extension.
 
-Data files has to starts from `year`, `underscore`, and `gender capital letter` 
+Data files has to starts from `year`, `underscore`, and `gender capital letter`
 - `M`, `F` or `N`. Example: `1990_M` for male names in 1990.
 
 ### What letter to use?
 
-Not all languages have same names grammar. For example english language have 
-same form of last name regardless the gender. In the other hand some languages 
+Not all languages have same names grammar. For example english language have
+same form of last name regardless the gender. In the other hand some languages
 like polish have separate last names forms for male and female.
 
 Use:
@@ -93,19 +93,19 @@ randname/data/
 
 Most of the databases with names are in `.csv` or `.xlsx` formats.
 
-When contributing pleas send also a source file from which you are creating 
+When contributing pleas send also a source file from which you are creating
 JSON data.
 
 ## Tools
 
-In `/tools` you can find simple python scrip that can help you to create JSON 
+In `/tools` you can find simple python scrip that can help you to create JSON
 files from `.xlsx` or `.csv` files.
 
-In order to make it work out of the box, a source file has to have the following 
+In order to make it work out of the box, a source file has to have the following
 structure:
 * contains 2 columns
 * first column has to be with names
-* second column has to be with integer numbers that indicates the number name 
+* second column has to be with integer numbers that indicates the number name
 occurrences.
 
 ### Example source file
@@ -117,7 +117,7 @@ occurrences.
 | WIŚNIEWSKI        | 72658  |
 | WÓJCIK            | 65836  |
 | KOWALCZYK         | 64736  |
-|<- snip ->         |        | 
+|<- snip ->         |        |
 | ŽUK-OLSZEWSKI     | 2      |
 | ŽUKOVSKI          | 2      |
 | ŽUKOVSKIJ         | 2      |
@@ -132,7 +132,7 @@ python3 convert_to_json.py -t csv -f PL/first_names/Imiona_nadane_wPolsce_w_lata
 
 ## Sources
 
-US 
+US
 
 Last names
 
